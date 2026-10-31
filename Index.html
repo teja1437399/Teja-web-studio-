@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teja Web Studio - Modern, responsive and professional website design.">
+  <title>Teja Web Studio | Modern Website Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f8f9fc;
+      color: #172033;
+      line-height: 1.7;
+    }
+    :root {
+      --navy: #101b35;
+      --gold: #c49a50;
+      --muted: #667085;
+      --white: #fff;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1120px, 90%); margin: auto; }
+
+    header {
+      background: rgba(16,27,53,.97);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 20px #101b3520;
+    }
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-size: 21px; font-weight: 700; letter-spacing: .3px; }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 25px; list-style: none; }
+    .nav-links a { color: #e6eaf2; font-size: 14px; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero {
+      background: linear-gradient(120deg, #101b35, #1d3158);
+      color: white;
+      padding: 110px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border: 1px solid #c49a5040;
+      border-radius: 50%;
+      right: -100px;
+      top: -100px;
+      box-shadow: 0 0 0 45px #c49a5008, 0 0 0 90px #c49a5006;
+    }
+    .eyebrow {
+      color: #e1bd7e;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    h1, h2 { font-family: 'Playfair Display', serif; }
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 70px);
+      line-height: 1.13;
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+    .hero h1 span { color: #dfb66e; }
+    .hero p {
+      max-width: 590px;
+      color: #d0d8e8;
+      font-size: 17px;
+      margin-bottom: 34px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s;
+    }
+    .btn-gold { background: var(--gold); color: #101b35; }
+    .btn-gold:hover { background: #e0b96f; transform: translateY(-3px); }
+    .btn-outline { border: 1px solid #ffffff80; color: white; margin-left: 10px; }
+    .btn-outline:hover { border-color: var(--gold); color: #e1bd7e; }
+
+    section { padding: 85px 0; }
+    .section-label {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(30px, 5vw, 43px);
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+    .section-intro { color: var(--muted); max-width: 650px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 55px;
+      align-items: center;
+    }
+    .about-panel {
+      background: var(--navy);
+      color: white;
+      padding: 38px;
+      border-radius: 12px;
+      border-bottom: 5px solid var(--gold);
+    }
+    .about-panel h3 { font-family: 'Playfair Display', serif; font-size: 27px; margin-bottom: 14px; }
+    .about-panel p { color: #d0d8e8; }
+
+    .services { background: #eef1f7; }
+    .service-grid, .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 38px;
+    }
+    .service-card, .project-card {
+      background: white;
+      padding: 28px;
+      border-radius: 10px;
+      border: 1px solid #e8ebf1;
+      transition: .25s;
+    }
+    .service-card:hover, .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px #101b3512;
+    }
+    .service-icon { font-size: 28px; margin-bottom: 16px; }
+    .service-card h3, .project-card h3 { color: var(--navy); margin-bottom: 10px; font-size: 18px; }
+    .service-card p, .project-card p { color: var(--muted); font-size: 14px; }
+
+    .project-card { padding: 0; overflow: hidden; }
+    .project-top {
+      min-height: 135px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #172747, #344b73);
+      color: #e3bd78;
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      text-align: center;
+      padding: 20px;
+    }
+    .project-info { padding: 23px; }
+    .project-link {
+      display: inline-block;
+      margin-top: 17px;
+      color: #a77a32;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    .contact { background: var(--navy); color: white; text-align: center; }
+    .contact .section-title { color: white; }
+    .contact .section-intro { margin: auto; color: #d0d8e8; }
+    .contact-note {
+      display: inline-block;
+      margin-top: 28px;
+      border: 1px solid #c49a5080;
+      padding: 13px 22px;
+      border-radius: 6px;
+      color: #e1bd7e;
+    }
+
+    footer {
+      background: #0b1429;
+      color: #aeb8cb;
+      text-align: center;
+      padding: 23px 10px;
+      font-size: 13px;
+    }
+    footer span { color: var(--gold); }
+
+    @media (max-width: 760px) {
+      nav { flex-direction: column; padding: 16px 0; }
+      .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+      .nav-links a { font-size: 12px; }
+      .hero { padding: 80px 0 90px; }
+      .hero p { font-size: 15px; }
+      .about-grid, .service-grid, .project-grid { grid-template-columns: 1fr; }
+      section { padding: 65px 0; }
+      .btn { margin-bottom: 10px; }
+      .btn-outline { margin-left: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">TEJA <span>WEB STUDIO.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">Welcome to Teja Web Studio</div>
+        <h1>Building Digital<br><span>Experiences</span> That Matter.</h1>
+        <p>Modern, clean and responsive website designs that help businesses and ideas build a strong online presence.</p>
+        <a href="#projects" class="btn btn-gold">Explore My Work</a>
+        <a href="#about" class="btn btn-outline">Discover More</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="section-label">About the Studio</div>
+          <h2 class="section-title">Creative Ideas.<br>Meaningful Websites.</h2>
+          <p class="section-intro">Teja Web Studio is a personal web design portfolio focused on creating simple, attractive and mobile-friendly website experiences.</p>
+          <p class="section-intro" style="margin-top:15px;">I enjoy learning, experimenting with design and building demo websites that turn ideas into digital experiences.</p>
+        </div>
+        <div class="about-panel">
+          <h3>Design with Purpose</h3>
+          <p>Every project is an opportunity to learn, improve and create something useful. My focus is on clean layouts, easy navigation and responsive design.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-label">What I Explore</div>
+        <h2 class="section-title">My Creative Services</h2>
+        <p class="section-intro">Areas I focus on while building and improving websites.</p>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Website Design</h3>
+            <p>Clean and modern layouts designed to make websites look professional.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">▣</div>
+            <h3>Responsive Design</h3>
+            <p>Layouts that adapt to mobile phones, tablets and desktop screens.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">◇</div>
+            <h3>Landing Pages</h3>
+            <p>Simple one-page website concepts for showcasing products and ideas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-label">My Portfolio</div>
+        <h2 class="section-title">Selected Demo Projects</h2>
+        <p class="section-intro">A few website concepts I have created as practice projects.</p>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-top">Sri Lakshmi Grocery</div>
+            <div class="project-info">
+              <h3>Grocery Store Website</h3>
+              <p>A demo website concept for presenting grocery products and store information.</p>
+              <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">View Demo ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">Ruchi Restaurant</div>
+            <div class="project-info">
+              <h3>Restaurant Website</h3>
+              <p>A restaurant demo concept with menu information and a clean visual layout.</p>
+              <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">View Demo ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">Good Choice Bakery</div>
+            <div class="project-info">
+              <h3>Bakery Website</h3>
+              <p>A bakery and sweets demo website designed to showcase a local business concept.</p>
+              <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">View Demo ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-intro">Interested in my work or want to share an idea? Contact details will be added here soon.</p>
+        <div class="contact-note">Teja Web Studio · Portfolio</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <span>Teja Web Studio</span>. Personal Portfolio. Built with care.</p>
+  </footer>
+</body>
+</html>
