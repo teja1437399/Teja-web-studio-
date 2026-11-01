@@ -1,563 +1,436 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#081426">
-<title>Teja Web Studio | Creative Website Design</title>
-<meta name="description" content="Teja Web Studio - Creative website design and digital experiences.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+<title>Sri Lakshmi Grocery Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy:#081426;
-  --navy2:#10223b;
-  --gold:#d8b56d;
-  --cream:#f5f0e6;
-  --muted:#aeb9c8;
+  --green:#176b3a;
+  --dark:#104d2b;
+  --gold:#f5bd45;
+  --cream:#fffaf0;
+  --text:#24352a;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--navy);
-  color:var(--cream);
-  font-family:"DM Sans",sans-serif;
-  line-height:1.7;
+  font-family:'Poppins',sans-serif;
+  color:var(--text);
+  background:#fff;
   overflow-x:hidden;
 }
 a{text-decoration:none;color:inherit}
-.container{width:min(1120px,90%);margin:auto}
-.gold{color:var(--gold)}
-h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.2}
-h2{font-size:clamp(32px,5vw,48px);margin:12px 0 18px}
-p{color:var(--muted)}
-.eyebrow{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:12px;
-  font-weight:700;
-}
+button{font:inherit;cursor:pointer}
+.container{width:min(1120px,92%);margin:auto}
 
-/* HEADER */
+/* Loading screen */
+.loader{
+  position:fixed;inset:0;background:var(--dark);
+  display:grid;place-items:center;z-index:9999;
+  animation:loaderOut .7s ease 1.3s forwards;
+}
+.loader span{font-size:25px;color:white;font-weight:700;
+  animation:pulse 1s infinite}
+@keyframes loaderOut{to{opacity:0;visibility:hidden}}
+@keyframes pulse{50%{opacity:.45;transform:scale(1.06)}}
+
+/* Header */
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(8,20,38,.95);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(216,181,109,.16);
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+  box-shadow:0 3px 20px #1235;
 }
-nav{
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.nav{
+  min-height:76px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
 }
-.logo{
-  font-family:"Playfair Display",serif;
-  font-size:23px;
-  font-weight:700;
-}
-.logo span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-size:13px;color:#d4dbe5;transition:.3s}
-.nav-links a:hover{color:var(--gold)}
-.menu-btn{
-  display:none;
-  border:0;
-  background:transparent;
-  color:var(--cream);
-  font-size:24px;
-  cursor:pointer;
-}
+.logo{display:flex;align-items:center;gap:10px;color:var(--green)}
+.logo-icon{font-size:34px}
+.logo h2{font-size:18px;line-height:1.2}
+.logo small{font-size:10px;color:#777;letter-spacing:2px}
+.nav-links{display:flex;gap:25px;align-items:center}
+.nav-links a{font-size:13px;font-weight:600;transition:.3s}
+.nav-links a:hover{color:#d39419}
+.menu-btn{display:none;background:none;border:0;font-size:27px;color:var(--green)}
 
-/* HERO */
+/* Hero */
 .hero{
-  min-height:650px;
-  display:flex;
-  align-items:center;
-  padding:100px 0;
-  background:
-    radial-gradient(circle at 80% 30%,rgba(216,181,109,.13),transparent 32%),
-    linear-gradient(135deg,#081426,#10223b);
+  min-height:510px;display:flex;align-items:center;
+  background:linear-gradient(110deg,#0e4c2aee,#176b3add),
+  radial-gradient(circle at 80% 30%,#e8b84c,transparent 35%);
+  color:white;position:relative;overflow:hidden;
 }
-.hero-content{max-width:760px}
-.hero h1{font-size:clamp(44px,7vw,76px);margin:22px 0}
-.hero h1 span{color:var(--gold)}
-.hero p{max-width:620px;font-size:17px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero:after{
+  content:"";position:absolute;width:360px;height:360px;
+  border:1px solid #ffffff35;border-radius:50%;
+  right:-90px;top:-90px;
+  box-shadow:0 0 0 35px #ffffff0b,0 0 0 75px #ffffff08;
+}
+.hero-content{position:relative;z-index:1;max-width:650px;padding:75px 0}
+.eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:3px}
+.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.12;margin:18px 0}
+.hero p{font-size:15px;line-height:1.9;color:#e4f1e7;max-width:550px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:14px 23px;
-  border-radius:5px;
-  font-size:13px;
-  font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 23px;border-radius:30px;font-weight:700;
+  font-size:13px;border:2px solid transparent;transition:.3s;
+}
+.btn-gold{background:var(--gold);color:#26331f}
+.btn-outline{border-color:#ffffff99;color:white}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 25px #0003}
+
+/* Sections */
+section{padding:75px 0}
+.section-head{text-align:center;margin-bottom:35px}
+.section-head span{font-size:11px;letter-spacing:3px;color:#bd861b;font-weight:700}
+.section-head h2{font-size:clamp(26px,4vw,37px);color:var(--dark);margin-top:8px}
+.section-head p{font-size:13px;color:#777;margin-top:8px}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature{
+  padding:25px 18px;border:1px solid #e9eee9;border-radius:16px;
+  text-align:center;background:white;transition:.35s;
+}
+.feature:hover{transform:translateY(-8px);box-shadow:0 15px 35px #164c2a16}
+.feature-icon{font-size:34px;margin-bottom:10px}
+.feature h3{font-size:15px;color:var(--dark)}
+.feature p{font-size:12px;color:#777;margin-top:6px}
+
+/* Products */
+.products-section{background:var(--cream)}
+.product-tools{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:25px}
+.search{
+  width:min(330px,100%);padding:12px 16px;border:1px solid #dce5dc;
+  border-radius:30px;outline:none;font:inherit;font-size:13px;
   transition:.3s;
 }
-.btn-gold{background:var(--gold);color:#111b2a}
-.btn-gold:hover{transform:translateY(-4px);box-shadow:0 12px 28px #d8b56d30}
-.btn-outline{border:1px solid #d8b56d80;color:var(--cream)}
-.btn-outline:hover{background:#d8b56d18}
-
-/* GENERAL SECTIONS */
-section{padding:100px 0}
-.section-head{max-width:680px;margin-bottom:45px}
-.section-head p{max-width:600px}
-
-/* ABOUT */
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:65px;
-  align-items:center;
+.search:focus{border-color:var(--green);box-shadow:0 0 0 4px #176b3a14}
+.filters{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filter{
+  border:1px solid #d9e4d9;background:white;color:var(--green);
+  border-radius:25px;padding:9px 16px;font-size:12px;font-weight:600;
+  transition:.3s;
 }
+.filter:hover,.filter.active{background:var(--green);color:white;transform:translateY(-2px)}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{
+  background:white;border:1px solid #edf0e9;border-radius:16px;
+  overflow:hidden;transition:transform .35s,box-shadow .35s;
+}
+.product:hover{transform:translateY(-8px);box-shadow:0 16px 32px #164c2a18}
+.product-art{
+  height:145px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#f6f4e9,#e7f1e2);
+  font-size:62px;transition:.4s;
+}
+.product:hover .product-art{transform:scale(1.025)}
+.product-info{padding:15px}
+.product-info small{color:#8b9b8d;font-size:10px}
+.product-info h3{font-size:14px;margin:5px 0;color:var(--dark)}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.price{font-weight:800;color:var(--green);font-size:15px}
+.add-btn{
+  border:0;background:var(--green);color:white;
+  border-radius:20px;padding:8px 12px;font-size:11px;font-weight:700;
+  transition:.25s;
+}
+.add-btn:hover{background:var(--gold);color:#26331f;transform:scale(1.06)}
+.no-results{grid-column:1/-1;text-align:center;padding:30px;color:#777}
+
+/* Cart */
+.cart-box{
+  margin:30px auto 0;background:white;border:1px solid #e4eadf;
+  border-radius:16px;padding:20px;max-width:650px;
+}
+.cart-box h3{color:var(--dark);font-size:17px}
+.cart-items{font-size:13px;color:#657267;margin:12px 0}
+.cart-total{font-weight:800;color:var(--green);margin-bottom:12px}
+.clear-btn{border:0;background:#f1f4ef;color:var(--dark);padding:8px 14px;border-radius:20px;font-size:11px}
+
+/* About and contact */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
 .about-art{
-  min-height:330px;
-  border:1px solid #d8b56d55;
-  border-radius:8px;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:30px;
-  background:radial-gradient(circle,#d8b56d20,transparent 65%),#10223b;
+  min-height:290px;border-radius:22px;background:linear-gradient(140deg,#e9f2df,#fff4d8);
+  display:grid;place-items:center;font-size:110px;
 }
-.about-art i{font-size:70px;color:var(--gold)}
-.about-art h3{font-size:30px;margin-top:18px}
-.about-copy p{margin:15px 0}
+.about-text h2{font-size:30px;color:var(--dark);margin:10px 0}
+.about-text p{font-size:13px;line-height:2;color:#69766b}
+.contact{background:var(--dark);color:white;text-align:center}
+.contact h2{font-size:32px;margin:10px 0}
+.contact p{font-size:13px;color:#d8e7da;line-height:1.8}
+.contact .btn{margin:20px 6px 0}
+footer{background:#0a3520;color:#c6d5c9;text-align:center;padding:22px;font-size:11px}
 
-/* SERVICES */
-.services,.process{background:#0c1a2e}
-.service-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-.service-card{
-  padding:32px 26px;
-  border:1px solid #d8b56d26;
-  border-radius:8px;
-  background:#10223b;
-  transition:.3s;
-}
-.service-card:hover{transform:translateY(-7px);border-color:var(--gold)}
-.service-card i{font-size:28px;color:var(--gold);margin-bottom:20px}
-.service-card h3{font-size:22px;margin-bottom:12px}
-
-/* PROJECTS */
-.project-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-.project-card{
-  overflow:hidden;
-  border-radius:8px;
-  border:1px solid #d8b56d30;
-  background:#10223b;
-  transition:.3s;
-}
-.project-card:hover{transform:translateY(-7px)}
-.mockup{
-  height:205px;
-  padding:14px;
-  background:#e9e6df;
-  color:#17243a;
-}
-.browser-bar{
-  height:18px;
-  display:flex;
-  align-items:center;
-  gap:5px;
-  margin-bottom:12px;
-}
-.browser-bar span{
-  width:7px;height:7px;border-radius:50%;
-  background:#d0a45c;
-}
-.mock-content{
-  height:150px;
-  border-radius:4px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:12px;
-  background:#fff;
-}
-.mock-content h3{font-size:22px;color:#183b2b}
-.mock-content p{color:#52616a;font-size:11px;margin-top:6px}
-.mock-content.restaurant{background:#2a1d19;color:white}
-.mock-content.restaurant h3{color:#f2c879}
-.mock-content.restaurant p{color:#e7d6c5}
-.mock-content.bakery{background:#fff1df}
-.mock-content.bakery h3{color:#854b36}
-.project-info{padding:23px}
-.project-info small{color:var(--gold);letter-spacing:1px}
-.project-info h3{font-size:22px;margin:8px 0}
-.project-info p{font-size:13px;margin-bottom:18px}
-.project-link{color:var(--gold);font-size:13px;font-weight:700}
-.project-link:hover{text-decoration:underline}
-
-/* PROCESS */
-.process-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-}
-.process-card{border-top:1px solid #d8b56d70;padding-top:22px}
-.process-card strong{color:var(--gold);font-size:30px}
-.process-card h3{font-size:23px;margin:12px 0}
-
-/* CONTACT */
-.contact{
-  text-align:center;
-  background:
-    radial-gradient(circle at center,#d8b56d18,transparent 55%),
-    #081426;
-}
-.contact-inner{max-width:720px;margin:auto}
-.contact-inner p{margin:0 auto 30px;max-width:600px}
-
-/* PREMIUM WHATSAPP BUTTON */
-.whatsapp-wrap{margin:32px auto 18px}
-.whatsapp-btn{
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  gap:14px;
-  padding:15px 25px 15px 17px;
-  border-radius:50px;
-  color:white;
-  background:linear-gradient(135deg,#20c96b,#0b9f55);
-  border:1px solid #74f0a8;
-  box-shadow:0 8px 28px rgba(32,201,107,.23);
-  transition:transform .3s,box-shadow .3s;
-  animation:whatsappGlow 2.8s infinite;
-}
-.whatsapp-btn:hover{
-  transform:translateY(-5px) scale(1.025);
-  box-shadow:0 14px 35px rgba(32,201,107,.38);
-}
-.whatsapp-icon{
-  width:43px;height:43px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.17);
-  font-size:25px;
-}
-.whatsapp-label{
-  display:flex;
-  flex-direction:column;
-  text-align:left;
-  line-height:1.35;
-}
-.whatsapp-label strong{font-size:15px;letter-spacing:.2px}
-.whatsapp-label small{font-size:11px;opacity:.9;margin-top:3px}
-@keyframes whatsappGlow{
-  0%,100%{box-shadow:0 8px 28px rgba(32,201,107,.20)}
-  50%{box-shadow:0 8px 34px rgba(32,201,107,.40)}
-}
-.contact-note{
-  font-size:11px;
-  color:#8f9dad;
-  letter-spacing:1.5px;
-  margin-top:18px;
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid #d8b56d25;
-  padding:28px 0;
-  text-align:center;
-}
-footer p{font-size:12px;margin:4px 0}
-
-/* ANIMATIONS */
-.reveal{
-  opacity:0;
-  transform:translateY(22px);
-  transition:.7s ease;
-}
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
 .reveal.show{opacity:1;transform:translateY(0)}
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
 
-@media(max-width:800px){
+@media(max-width:850px){
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{gap:14px}
+}
+@media(max-width:650px){
+  .nav{min-height:67px}
   .menu-btn{display:block}
   .nav-links{
-    display:none;
-    position:absolute;
-    top:76px;
-    left:0;
-    width:100%;
-    padding:22px 5%;
-    background:#081426;
-    border-bottom:1px solid #d8b56d30;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:18px;
+    display:none;position:absolute;top:67px;left:0;width:100%;
+    background:white;padding:20px;box-shadow:0 10px 18px #0001;
+    flex-direction:column;align-items:flex-start;
   }
   .nav-links.open{display:flex}
-  .about-grid{grid-template-columns:1fr;gap:30px}
-  .service-grid,.project-grid,.process-grid{grid-template-columns:1fr}
-  .hero{min-height:570px}
-  section{padding:75px 0}
+  .hero{min-height:470px}
+  .hero-content{padding:65px 0}
+  .features{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-art{min-height:210px;font-size:80px}
+  section{padding:58px 0}
+}
+@media(max-width:390px){
+  .product-grid{gap:10px}
+  .product-info{padding:11px}
+  .product-art{height:115px;font-size:48px}
+  .product-info h3{font-size:12px}
+  .add-btn{padding:7px 9px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    scroll-behavior:auto!important;
-    animation:none!important;
-    transition:none!important;
-  }
+  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
-
 <body>
 
+<div class="loader"><span>🌿 Sri Lakshmi Grocery</span></div>
+
 <header>
-  <nav class="container">
-    <a class="logo" href="#home">TEJA <span>WEB STUDIO.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <div class="nav-links" id="navLinks">
+  <div class="container nav">
+    <a class="logo" href="#home">
+      <span class="logo-icon">🛒</span>
+      <span><h2>Sri Lakshmi</h2><small>GROCERY STORE</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
+      <a href="#products">Products</a>
       <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
 
 <main>
-
 <section class="hero" id="home">
-  <div class="container hero-content reveal">
-    <div class="eyebrow">Independent Creative Portfolio</div>
-    <h1>Crafting Digital<br><span>Experiences</span> with Purpose.</h1>
-    <p>Thoughtful website design, modern layouts and responsive digital experiences — built with creativity, curiosity and attention to detail.</p>
-    <div class="hero-actions">
-      <a class="btn btn-gold" href="#projects">Explore My Projects <i class="fa-solid fa-arrow-right"></i></a>
-      <a class="btn btn-outline" href="#about">Discover My Story</a>
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">WELCOME TO SRI LAKSHMI GROCERY</div>
+      <h1>Fresh Essentials.<br><span style="color:var(--gold)">Everyday Value.</span></h1>
+      <p>Your everyday grocery essentials in one place. Explore our product collection and find the items you need for your home.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-gold">Explore Products →</a>
+        <a href="#contact" class="btn btn-outline">Contact Store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container features">
+    <article class="feature reveal">
+      <div class="feature-icon">🌾</div><h3>Daily Essentials</h3>
+      <p>Everyday grocery items for your home.</p>
+    </article>
+    <article class="feature reveal delay-1">
+      <div class="feature-icon">🛍️</div><h3>Easy Shopping</h3>
+      <p>Browse products and build your shopping list.</p>
+    </article>
+    <article class="feature reveal delay-2">
+      <div class="feature-icon">🏡</div><h3>Local Store</h3>
+      <p>Your neighbourhood grocery store.</p>
+    </article>
+  </div>
+</section>
+
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="section-head reveal">
+      <span>OUR COLLECTION</span>
+      <h2>Explore Our Products</h2>
+      <p>Find everyday essentials for your kitchen and home.</p>
+    </div>
+    <div class="product-tools reveal">
+      <input class="search" id="searchInput" type="search" placeholder="🔍 Search products..." aria-label="Search products">
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="filter active" data-category="All">All</button>
+      <button class="filter" data-category="Grains">Grains</button>
+      <button class="filter" data-category="Pulses">Pulses</button>
+      <button class="filter" data-category="Oils">Oils</button>
+      <button class="filter" data-category="Spices">Spices</button>
+      <button class="filter" data-category="Other">Other</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <div class="cart-box reveal">
+      <h3>🛒 Your Shopping List</h3>
+      <div class="cart-items" id="cartItems">No products added yet.</div>
+      <div class="cart-total" id="cartTotal">Total: ₹0</div>
+      <button class="clear-btn" id="clearCart">Clear List</button>
     </div>
   </div>
 </section>
 
 <section id="about">
   <div class="container about-grid">
-    <div class="about-art reveal">
-      <div>
-        <i class="fa-solid fa-laptop-code"></i>
-        <h3>Ideas Into Reality.</h3>
-        <p>A creative journey built around technology, design and continuous learning.</p>
-      </div>
-    </div>
-    <div class="about-copy reveal">
-      <div class="eyebrow">About Me</div>
-      <h2>Designing Ideas Into <span class="gold">Digital Experiences.</span></h2>
-      <p>Welcome to Teja Web Studio — my personal web design portfolio and creative space.</p>
-      <p>I enjoy exploring website design, creating responsive layouts and turning simple ideas into attractive digital experiences.</p>
-      <p>Every project is a chance to learn, experiment and improve.</p>
-    </div>
-  </div>
-</section>
-
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">What I Explore</div>
-      <h2>Creative <span class="gold">Areas</span></h2>
-      <p>The design and development areas I enjoy learning and working on.</p>
-    </div>
-    <div class="service-grid">
-      <article class="service-card reveal">
-        <i class="fa-solid fa-pen-ruler"></i>
-        <h3>Website Design</h3>
-        <p>Clean, elegant and modern website concepts with thoughtful visual layouts.</p>
-      </article>
-      <article class="service-card reveal">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-        <h3>Responsive Layouts</h3>
-        <p>Flexible designs that adapt to mobile phones, tablets and desktop screens.</p>
-      </article>
-      <article class="service-card reveal">
-        <i class="fa-solid fa-window-maximize"></i>
-        <h3>Landing Pages</h3>
-        <p>Focused one-page concepts to present ideas, products and information.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Selected Work</div>
-      <h2>Demo <span class="gold">Projects</span></h2>
-      <p>A selection of personal practice projects created to explore website design.</p>
-    </div>
-
-    <div class="project-grid">
-      <article class="project-card reveal">
-        <div class="mockup">
-          <div class="browser-bar"><span></span><span></span><span></span></div>
-          <div class="mock-content">
-            <h3>FRESH & DAILY</h3>
-            <p>Sri Lakshmi Grocery Store</p>
-            <p>Everyday essentials, all in one place.</p>
-          </div>
-        </div>
-        <div class="project-info">
-          <small>STORE WEBSITE CONCEPT</small>
-          <h3>Sri Lakshmi Grocery</h3>
-          <p>A demo website concept for presenting grocery products and store information.</p>
-          <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </article>
-
-      <article class="project-card reveal">
-        <div class="mockup">
-          <div class="browser-bar"><span></span><span></span><span></span></div>
-          <div class="mock-content restaurant">
-            <h3>WELCOME TO</h3>
-            <h3>Ruchi Restaurant</h3>
-            <p>Discover delicious food and more.</p>
-          </div>
-        </div>
-        <div class="project-info">
-          <small>RESTAURANT WEBSITE CONCEPT</small>
-          <h3>Ruchi Restaurant</h3>
-          <p>A restaurant demo concept with menu information and a clean visual layout.</p>
-          <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </article>
-
-      <article class="project-card reveal">
-        <div class="mockup">
-          <div class="browser-bar"><span></span><span></span><span></span></div>
-          <div class="mock-content bakery">
-            <h3>BAKED WITH CARE</h3>
-            <p>Good Choice Bakery & Sweets</p>
-            <p>A little sweetness for every moment.</p>
-          </div>
-        </div>
-        <div class="project-info">
-          <small>BAKERY WEBSITE CONCEPT</small>
-          <h3>Good Choice Bakery</h3>
-          <p>A bakery and sweets demo website designed to showcase a business concept.</p>
-          <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="process">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">My Approach</div>
-      <h2>From Idea to <span class="gold">Experience</span></h2>
-      <p>A simple creative process behind every practice project.</p>
-    </div>
-    <div class="process-grid">
-      <article class="process-card reveal">
-        <strong>01</strong>
-        <h3>Understand</h3>
-        <p>Start with the idea, purpose and people the website is meant to serve.</p>
-      </article>
-      <article class="process-card reveal">
-        <strong>02</strong>
-        <h3>Design</h3>
-        <p>Explore layout, colors and content to create a clear visual direction.</p>
-      </article>
-      <article class="process-card reveal">
-        <strong>03</strong>
-        <h3>Improve</h3>
-        <p>Test the experience, refine details and keep learning with every project.</p>
-      </article>
+    <div class="about-art reveal">🛒🌾</div>
+    <div class="about-text reveal delay-1">
+      <span class="eyebrow">ABOUT OUR STORE</span>
+      <h2>Sri Lakshmi Grocery Store</h2>
+      <p>Welcome to Sri Lakshmi Grocery Store. Explore a selection of everyday grocery essentials, from grains and pulses to cooking oils and spices. Browse our product list and prepare your shopping list with ease.</p>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="container contact-inner reveal">
-    <div class="eyebrow">Get In Touch</div>
-    <h2>Let's Create Something <span class="gold">Great.</span></h2>
-    <p>Have a website idea or project in mind? Let's connect and talk about your ideas.</p>
-
-    <div class="whatsapp-wrap">
-      <a class="whatsapp-btn"
-         href="https://wa.me/918185961687?text=Hello%20Teja%20Web%20Studio!%20I%20would%20like%20to%20know%20more%20about%20your%20website%20design%20work."
-         target="_blank"
-         rel="noopener">
-        <span class="whatsapp-icon">
-          <i class="fa-brands fa-whatsapp"></i>
-        </span>
-        <span class="whatsapp-label">
-          <strong>Chat on WhatsApp</strong>
-          <small>Let's talk about your project</small>
-        </span>
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </a>
-    </div>
-    <div class="contact-note">QUICK RESPONSE · FRIENDLY COMMUNICATION</div>
+  <div class="container reveal">
+    <div class="eyebrow">GET IN TOUCH</div>
+    <h2>Need Grocery Essentials?</h2>
+    <p>For product availability, prices and store details,<br>please contact the store directly.</p>
+    <a class="btn btn-gold" href="#" id="whatsappBtn">WhatsApp Us</a>
+    <a class="btn btn-outline" href="#" id="callBtn">Call Store</a>
   </div>
 </section>
-
 </main>
 
 <footer>
-  <div class="container">
-    <p><span class="gold">TEJA WEB STUDIO</span> · PERSONAL PORTFOLIO</p>
-    <p>© 2026 Teja Web Studio. Personal Portfolio.</p>
-    <p>Designed with purpose.</p>
-  </div>
+  <p>© <span id="year"></span> Sri Lakshmi Grocery Store. All rights reserved.</p>
+  <p style="margin-top:6px">Website demo created by Teja Web Studio</p>
 </footer>
 
 <script>
-const menuBtn=document.getElementById("menuBtn");
-const navLinks=document.getElementById("navLinks");
+const products = [
+  {name:"Rice",price:60,category:"Grains",emoji:"🍚"},
+  {name:"Wheat Flour",price:45,category:"Grains",emoji:"🌾"},
+  {name:"Toor Dal",price:150,category:"Pulses",emoji:"🫘"},
+  {name:"Moong Dal",price:120,category:"Pulses",emoji:"🫛"},
+  {name:"Cooking Oil",price:140,category:"Oils",emoji:"🫗"},
+  {name:"Groundnut Oil",price:180,category:"Oils",emoji:"🥜"},
+  {name:"Turmeric Powder",price:35,category:"Spices",emoji:"🟡"},
+  {name:"Chilli Powder",price:40,category:"Spices",emoji:"🌶️"},
+  {name:"Biscuits",price:20,category:"Other",emoji:"🍪"},
+  {name:"Tea Powder",price:110,category:"Other",emoji:"🍵"},
+  {name:"Sugar",price:50,category:"Other",emoji:"🍬"},
+  {name:"Chana Dal",price:90,category:"Pulses",emoji:"🫘"}
+];
 
-menuBtn.addEventListener("click",()=>{
-  const isOpen=navLinks.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded",isOpen);
-  menuBtn.innerHTML=isOpen
-    ? '<i class="fa-solid fa-xmark"></i>'
-    : '<i class="fa-solid fa-bars"></i>';
-});
+let selectedCategory="All";
+const cart={};
+const grid=document.getElementById("productGrid");
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    navLinks.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded","false");
-    menuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';
+function renderProducts(){
+  const search=document.getElementById("searchInput").value.toLowerCase().trim();
+  const filtered=products.filter(p=>
+    (selectedCategory==="All"||p.category===selectedCategory)&&
+    p.name.toLowerCase().includes(search)
+  );
+  grid.innerHTML="";
+  if(!filtered.length){
+    grid.innerHTML='<div class="no-results">No matching products found.</div>';
+    return;
+  }
+  filtered.forEach((p,i)=>{
+    const card=document.createElement("article");
+    card.className="product reveal";
+    card.style.transitionDelay=(i%4)*.07+"s";
+    card.innerHTML=`
+      <div class="product-art">${p.emoji}</div>
+      <div class="product-info">
+        <small>${p.category}</small>
+        <h3>${p.name}</h3>
+        <div class="product-bottom">
+          <span class="price">₹${p.price}</span>
+          <button class="add-btn" data-name="${p.name}">+ Add</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
   });
+  observeReveals();
+}
+function updateCart(){
+  const names=Object.keys(cart).filter(name=>cart[name]>0);
+  const items=document.getElementById("cartItems");
+  if(!names.length)items.textContent="No products added yet.";
+  else items.innerHTML=names.map(name=>
+    `<div>${name} × ${cart[name]}</div>`
+  ).join("");
+  const total=names.reduce((sum,name)=>{
+    const p=products.find(item=>item.name===name);
+    return sum+(p.price*cart[name]);
+  },0);
+  document.getElementById("cartTotal").textContent="Total: ₹"+total;
+}
+grid.addEventListener("click",e=>{
+  const btn=e.target.closest(".add-btn");
+  if(!btn)return;
+  const name=btn.dataset.name;
+  cart[name]=(cart[name]||0)+1;
+  updateCart();
+  btn.textContent="✓ Added";
+  setTimeout(()=>btn.textContent="+ Add",800);
+});
+document.getElementById("clearCart").addEventListener("click",()=>{
+  Object.keys(cart).forEach(name=>delete cart[name]);
+  updateCart();
+});
+document.getElementById("searchInput").addEventListener("input",renderProducts);
+document.getElementById("filters").addEventListener("click",e=>{
+  const btn=e.target.closest(".filter");
+  if(!btn)return;
+  selectedCategory=btn.dataset.category;
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  renderProducts();
+});
+document.getElementById("menuBtn").addEventListener("click",()=>{
+  document.getElementById("navLinks").classList.toggle("open");
+});
+document.querySelectorAll(".nav-links a").forEach(a=>{
+  a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
 });
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:0.12});
+/* Scroll reveal animation */
+let revealObserver;
+function observeReveals(){
+  if(!("IntersectionObserver" in window)){
+    document.querySelectorAll(".reveal").forEach(el=>el.classList.add("show"));
+    return;
+  }
+  if(!revealObserver){
+    revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.12});
+  }
+  document.querySelectorAll(".reveal:not(.show)").forEach(el=>revealObserver.observe(el));
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();
+observeReveals();
+updateCart();
 
-document.querySelectorAll(".reveal").forEach(element=>{
-  observer.observe(element);
-});
+/* Contact details can be added after store owner confirmation. */
 </script>
-
 </body>
 </html>
