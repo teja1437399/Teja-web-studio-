@@ -2,333 +2,617 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Teja Web Studio - Modern, responsive and professional website design.">
-  <title>Teja Web Studio | Modern Website Design</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090f1e">
+<meta name="description" content="Teja Web Studio creates modern, elegant and responsive digital experiences. Explore website design projects and creative work.">
+<title>Teja Web Studio | Crafting Digital Experiences</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f8f9fc;
-      color: #172033;
-      line-height: 1.7;
-    }
-    :root {
-      --navy: #101b35;
-      --gold: #c49a50;
-      --muted: #667085;
-      --white: #fff;
-    }
-    a { text-decoration: none; color: inherit; }
-    .container { width: min(1120px, 90%); margin: auto; }
+<style>
+:root {
+  --bg:#090f1e;
+  --bg2:#101a30;
+  --gold:#d5ad69;
+  --gold-light:#f0d49c;
+  --white:#f7f5f0;
+  --muted:#a5aec0;
+  --line:rgba(213,173,105,.2);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+a { text-decoration:none; color:inherit; }
+.container { width:min(1160px,90%); margin:auto; }
+.gold { color:var(--gold); }
+.serif { font-family:'Playfair Display',serif; }
 
-    header {
-      background: rgba(16,27,53,.97);
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 4px 20px #101b3520;
-    }
-    nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .logo { font-size: 21px; font-weight: 700; letter-spacing: .3px; }
-    .logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 25px; list-style: none; }
-    .nav-links a { color: #e6eaf2; font-size: 14px; }
-    .nav-links a:hover { color: var(--gold); }
+header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(9,15,30,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+nav {
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo {
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+.logo span { color:var(--gold); }
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:28px;
+  list-style:none;
+}
+.nav-links a {
+  font-size:13px;
+  color:#d7dce6;
+  transition:.3s;
+}
+.nav-links a:hover { color:var(--gold); }
+.nav-contact {
+  border:1px solid var(--gold);
+  padding:9px 17px;
+  border-radius:4px;
+}
+.menu-btn {
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  color:var(--gold);
+  padding:7px 12px;
+  font-size:20px;
+  border-radius:5px;
+}
 
-    .hero {
-      background: linear-gradient(120deg, #101b35, #1d3158);
-      color: white;
-      padding: 110px 0 120px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 380px;
-      height: 380px;
-      border: 1px solid #c49a5040;
-      border-radius: 50%;
-      right: -100px;
-      top: -100px;
-      box-shadow: 0 0 0 45px #c49a5008, 0 0 0 90px #c49a5006;
-    }
-    .eyebrow {
-      color: #e1bd7e;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    h1, h2 { font-family: 'Playfair Display', serif; }
-    .hero h1 {
-      font-size: clamp(42px, 7vw, 70px);
-      line-height: 1.13;
-      max-width: 760px;
-      margin-bottom: 22px;
-    }
-    .hero h1 span { color: #dfb66e; }
-    .hero p {
-      max-width: 590px;
-      color: #d0d8e8;
-      font-size: 17px;
-      margin-bottom: 34px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 13px 25px;
-      border-radius: 5px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: .25s;
-    }
-    .btn-gold { background: var(--gold); color: #101b35; }
-    .btn-gold:hover { background: #e0b96f; transform: translateY(-3px); }
-    .btn-outline { border: 1px solid #ffffff80; color: white; margin-left: 10px; }
-    .btn-outline:hover { border-color: var(--gold); color: #e1bd7e; }
+.hero {
+  min-height:660px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 80% 45%,rgba(213,173,105,.12),transparent 38%),
+    linear-gradient(125deg,#090f1e,#111d35 70%,#0c1426);
+}
+.hero::before {
+  content:"";
+  position:absolute;
+  width:460px;
+  height:460px;
+  border:1px solid rgba(213,173,105,.18);
+  border-radius:50%;
+  right:-100px;
+  top:70px;
+  box-shadow:0 0 0 45px rgba(213,173,105,.025),0 0 0 90px rgba(213,173,105,.02);
+  animation:float 8s ease-in-out infinite;
+}
+.hero-content {
+  position:relative;
+  z-index:1;
+  padding:100px 0;
+  max-width:800px;
+  animation:fadeUp 1s ease both;
+}
+.eyebrow {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+.eyebrow::before {
+  content:"";
+  width:35px;
+  height:1px;
+  background:var(--gold);
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(45px,7vw,82px);
+  line-height:1.08;
+  font-weight:600;
+  max-width:850px;
+  margin-bottom:25px;
+}
+.hero h1 span {
+  color:var(--gold);
+  font-style:italic;
+}
+.hero p {
+  color:#bac3d3;
+  max-width:590px;
+  font-size:16px;
+  margin-bottom:35px;
+}
+.buttons { display:flex; gap:14px; flex-wrap:wrap; }
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 24px;
+  border-radius:4px;
+  font-size:13px;
+  font-weight:700;
+  transition:.3s;
+}
+.btn-primary {
+  background:var(--gold);
+  color:#101626;
+}
+.btn-primary:hover {
+  background:var(--gold-light);
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(213,173,105,.18);
+}
+.btn-outline {
+  border:1px solid rgba(255,255,255,.35);
+  color:white;
+}
+.btn-outline:hover {
+  border-color:var(--gold);
+  color:var(--gold);
+}
+.hero-note {
+  margin-top:60px;
+  color:#8994a9;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
 
-    section { padding: 85px 0; }
-    .section-label {
-      color: var(--gold);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: clamp(30px, 5vw, 43px);
-      color: var(--navy);
-      margin-bottom: 18px;
-    }
-    .section-intro { color: var(--muted); max-width: 650px; }
+section { padding:100px 0; }
+.section-top { margin-bottom:42px; }
+.section-label {
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,48px);
+  line-height:1.2;
+  color:var(--white);
+  margin-bottom:15px;
+}
+.section-desc { color:var(--muted); max-width:650px; font-size:15px; }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 55px;
-      align-items: center;
-    }
-    .about-panel {
-      background: var(--navy);
-      color: white;
-      padding: 38px;
-      border-radius: 12px;
-      border-bottom: 5px solid var(--gold);
-    }
-    .about-panel h3 { font-family: 'Playfair Display', serif; font-size: 27px; margin-bottom: 14px; }
-    .about-panel p { color: #d0d8e8; }
+.about-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:65px;
+  align-items:center;
+}
+.about-copy p { color:var(--muted); margin-bottom:17px; }
+.about-visual {
+  min-height:330px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:40px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(213,173,105,.16),transparent 35%),
+    linear-gradient(140deg,#15213b,#0e172a);
+  position:relative;
+  overflow:hidden;
+}
+.about-visual::after {
+  content:"T";
+  position:absolute;
+  right:15px;
+  bottom:-110px;
+  font-family:'Playfair Display',serif;
+  font-size:300px;
+  color:rgba(213,173,105,.07);
+}
+.about-visual h3 {
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  color:var(--gold-light);
+  position:relative;
+  z-index:1;
+}
+.about-visual p {
+  color:#bac3d3;
+  max-width:300px;
+  margin-top:12px;
+  position:relative;
+  z-index:1;
+}
 
-    .services { background: #eef1f7; }
-    .service-grid, .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 38px;
-    }
-    .service-card, .project-card {
-      background: white;
-      padding: 28px;
-      border-radius: 10px;
-      border: 1px solid #e8ebf1;
-      transition: .25s;
-    }
-    .service-card:hover, .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 35px #101b3512;
-    }
-    .service-icon { font-size: 28px; margin-bottom: 16px; }
-    .service-card h3, .project-card h3 { color: var(--navy); margin-bottom: 10px; font-size: 18px; }
-    .service-card p, .project-card p { color: var(--muted); font-size: 14px; }
+.services-section { background:#0d1628; }
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.service-card {
+  padding:32px 27px;
+  background:linear-gradient(145deg,#14213a,#101a2d);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:7px;
+  transition:.35s;
+}
+.service-card:hover {
+  transform:translateY(-8px);
+  border-color:var(--line);
+  box-shadow:0 18px 40px rgba(0,0,0,.2);
+}
+.service-icon {
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  border:1px solid var(--line);
+  border-radius:6px;
+  font-size:23px;
+  margin-bottom:22px;
+}
+.service-card h3 { font-size:18px; margin-bottom:10px; }
+.service-card p { color:var(--muted); font-size:13px; }
 
-    .project-card { padding: 0; overflow: hidden; }
-    .project-top {
-      min-height: 135px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #172747, #344b73);
-      color: #e3bd78;
-      font-family: 'Playfair Display', serif;
-      font-size: 25px;
-      text-align: center;
-      padding: 20px;
-    }
-    .project-info { padding: 23px; }
-    .project-link {
-      display: inline-block;
-      margin-top: 17px;
-      color: #a77a32;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .project-link:hover { text-decoration: underline; }
+.project-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.project-card {
+  border:1px solid rgba(255,255,255,.09);
+  background:#101a2d;
+  border-radius:8px;
+  overflow:hidden;
+  transition:.35s;
+}
+.project-card:hover {
+  transform:translateY(-7px);
+  border-color:var(--gold);
+}
+.project-art {
+  height:190px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 70% 20%,rgba(213,173,105,.22),transparent 40%),
+    linear-gradient(135deg,#1d3152,#111b30);
+  color:var(--gold-light);
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+}
+.project-info { padding:25px; }
+.project-info small {
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.project-info h3 { font-size:18px; margin:8px 0; }
+.project-info p { color:var(--muted); font-size:13px; min-height:65px; }
+.project-link {
+  display:inline-block;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:700;
+  margin-top:15px;
+}
+.project-link:hover { color:var(--gold-light); }
 
-    .contact { background: var(--navy); color: white; text-align: center; }
-    .contact .section-title { color: white; }
-    .contact .section-intro { margin: auto; color: #d0d8e8; }
-    .contact-note {
-      display: inline-block;
-      margin-top: 28px;
-      border: 1px solid #c49a5080;
-      padding: 13px 22px;
-      border-radius: 6px;
-      color: #e1bd7e;
-    }
+.process-section { background:#0d1628; }
+.process-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+.process-item { border-top:1px solid var(--line); padding-top:22px; }
+.process-number {
+  color:var(--gold);
+  font-family:'Playfair Display',serif;
+  font-size:35px;
+}
+.process-item h3 { margin:10px 0; font-size:17px; }
+.process-item p { color:var(--muted); font-size:13px; }
 
-    footer {
-      background: #0b1429;
-      color: #aeb8cb;
-      text-align: center;
-      padding: 23px 10px;
-      font-size: 13px;
-    }
-    footer span { color: var(--gold); }
+.contact-section {
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(213,173,105,.13),transparent 55%),
+    #101a2d;
+}
+.contact-section .section-desc { margin:0 auto 28px; }
+.contact-box {
+  max-width:760px;
+  margin:auto;
+  padding:55px 25px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:rgba(255,255,255,.025);
+}
+.contact-box .section-title { margin-bottom:18px; }
+.contact-note { color:var(--gold-light); font-size:13px; }
 
-    @media (max-width: 760px) {
-      nav { flex-direction: column; padding: 16px 0; }
-      .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
-      .nav-links a { font-size: 12px; }
-      .hero { padding: 80px 0 90px; }
-      .hero p { font-size: 15px; }
-      .about-grid, .service-grid, .project-grid { grid-template-columns: 1fr; }
-      section { padding: 65px 0; }
-      .btn { margin-bottom: 10px; }
-      .btn-outline { margin-left: 0; }
-    }
-  </style>
+footer {
+  padding:30px 0;
+  border-top:1px solid rgba(255,255,255,.07);
+  color:#8d98ab;
+  font-size:12px;
+}
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+footer strong { color:var(--gold); }
+
+.reveal {
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(25px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(18px); }
+}
+
+@media(max-width:800px) {
+  .menu-btn { display:block; }
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:78px;
+    left:0;
+    width:100%;
+    padding:22px 5%;
+    background:#0d1628;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+  }
+  .nav-links.open { display:flex; }
+  .about-grid { grid-template-columns:1fr; gap:35px; }
+  .service-grid,.project-grid,.process-grid { grid-template-columns:1fr; }
+  .hero { min-height:600px; }
+  section { padding:75px 0; }
+  .hero-note { margin-top:40px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto !important;
+    animation:none !important;
+    transition:none !important;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <nav class="container">
-      <a class="logo" href="#home">TEJA <span>WEB STUDIO.</span></a>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">TEJA <span>WEB STUDIO.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" class="nav-contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="eyebrow">Welcome to Teja Web Studio</div>
-        <h1>Building Digital<br><span>Experiences</span> That Matter.</h1>
-        <p>Modern, clean and responsive website designs that help businesses and ideas build a strong online presence.</p>
-        <a href="#projects" class="btn btn-gold">Explore My Work</a>
-        <a href="#about" class="btn btn-outline">Discover More</a>
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Independent Creative Portfolio</div>
+      <h1>Crafting Digital<br><span>Experiences</span> with Purpose.</h1>
+      <p>Thoughtful website design, modern layouts and responsive digital experiences — built with creativity, curiosity and attention to detail.</p>
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">Explore My Projects ↗</a>
+        <a href="#about" class="btn btn-outline">Discover My Story</a>
       </div>
-    </section>
+      <div class="hero-note">Creative thinking · Modern design · Digital experiences</div>
+    </div>
+  </div>
+</section>
 
-    <section id="about">
-      <div class="container about-grid">
-        <div>
-          <div class="section-label">About the Studio</div>
-          <h2 class="section-title">Creative Ideas.<br>Meaningful Websites.</h2>
-          <p class="section-intro">Teja Web Studio is a personal web design portfolio focused on creating simple, attractive and mobile-friendly website experiences.</p>
-          <p class="section-intro" style="margin-top:15px;">I enjoy learning, experimenting with design and building demo websites that turn ideas into digital experiences.</p>
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <div class="section-label">A Little About Me</div>
+      <h2 class="section-title">Designing Ideas Into Digital Experiences.</h2>
+      <p>Welcome to Teja Web Studio — my personal web design portfolio and creative space.</p>
+      <p>I enjoy exploring website design, creating responsive layouts and turning simple ideas into attractive digital experiences.</p>
+      <p>Every project is a chance to learn, experiment and make something better than before.</p>
+    </div>
+    <div class="about-visual reveal">
+      <h3>Ideas Into Reality.</h3>
+      <p>A personal journey built around creativity, technology and continuous learning.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-top reveal">
+      <div class="section-label">What I Explore</div>
+      <h2 class="section-title">Creative Areas</h2>
+      <p class="section-desc">The design and development areas I enjoy learning and working on.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <div class="service-icon">✧</div>
+        <h3>Website Design</h3>
+        <p>Clean, elegant and modern website concepts with thoughtful visual layouts.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon">▣</div>
+        <h3>Responsive Layouts</h3>
+        <p>Flexible designs that adapt to mobile phones, tablets and desktop screens.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon">◇</div>
+        <h3>Landing Pages</h3>
+        <p>Focused one-page concepts to present ideas, products and business information.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-top reveal">
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-title">Demo Projects</h2>
+      <p class="section-desc">A selection of personal practice projects created to explore website design and presentation.</p>
+    </div>
+    <div class="project-grid">
+      <article class="project-card reveal">
+        <div class="project-art">Sri Lakshmi<br>Grocery Store</div>
+        <div class="project-info">
+          <small>Store Website Concept</small>
+          <h3>Grocery Store</h3>
+          <p>A demo website concept for presenting grocery products and store information.</p>
+          <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">Explore Project ↗</a>
         </div>
-        <div class="about-panel">
-          <h3>Design with Purpose</h3>
-          <p>Every project is an opportunity to learn, improve and create something useful. My focus is on clean layouts, easy navigation and responsive design.</p>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-art">Ruchi<br>Restaurant</div>
+        <div class="project-info">
+          <small>Restaurant Website Concept</small>
+          <h3>Restaurant Website</h3>
+          <p>A restaurant demo concept with menu information and a clean visual layout.</p>
+          <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">Explore Project ↗</a>
         </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <div class="container">
-        <div class="section-label">What I Explore</div>
-        <h2 class="section-title">My Creative Services</h2>
-        <p class="section-intro">Areas I focus on while building and improving websites.</p>
-
-        <div class="service-grid">
-          <div class="service-card">
-            <div class="service-icon">✦</div>
-            <h3>Website Design</h3>
-            <p>Clean and modern layouts designed to make websites look professional.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">▣</div>
-            <h3>Responsive Design</h3>
-            <p>Layouts that adapt to mobile phones, tablets and desktop screens.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">◇</div>
-            <h3>Landing Pages</h3>
-            <p>Simple one-page website concepts for showcasing products and ideas.</p>
-          </div>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-art">Good Choice<br>Bakery & Sweets</div>
+        <div class="project-info">
+          <small>Bakery Website Concept</small>
+          <h3>Bakery Website</h3>
+          <p>A bakery and sweets demo website designed to showcase a local business concept.</p>
+          <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">Explore Project ↗</a>
         </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="container">
+    <div class="section-top reveal">
+      <div class="section-label">My Approach</div>
+      <h2 class="section-title">From Idea to Experience</h2>
+      <p class="section-desc">A simple creative process behind every practice project.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-item reveal">
+        <div class="process-number">01</div>
+        <h3>Understand</h3>
+        <p>Start with the idea, purpose and people the website is meant to serve.</p>
       </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <div class="section-label">My Portfolio</div>
-        <h2 class="section-title">Selected Demo Projects</h2>
-        <p class="section-intro">A few website concepts I have created as practice projects.</p>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-top">Sri Lakshmi Grocery</div>
-            <div class="project-info">
-              <h3>Grocery Store Website</h3>
-              <p>A demo website concept for presenting grocery products and store information.</p>
-              <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">View Demo ↗</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">Ruchi Restaurant</div>
-            <div class="project-info">
-              <h3>Restaurant Website</h3>
-              <p>A restaurant demo concept with menu information and a clean visual layout.</p>
-              <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">View Demo ↗</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">Good Choice Bakery</div>
-            <div class="project-info">
-              <h3>Bakery Website</h3>
-              <p>A bakery and sweets demo website designed to showcase a local business concept.</p>
-              <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">View Demo ↗</a>
-            </div>
-          </article>
-        </div>
+      <div class="process-item reveal">
+        <div class="process-number">02</div>
+        <h3>Design</h3>
+        <p>Explore layout, colors and content to create a clear visual direction.</p>
       </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-label">Get in Touch</div>
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="section-intro">Interested in my work or want to share an idea? Contact details will be added here soon.</p>
-        <div class="contact-note">Teja Web Studio · Portfolio</div>
+      <div class="process-item reveal">
+        <div class="process-number">03</div>
+        <h3>Improve</h3>
+        <p>Test the experience, refine details and keep learning with every project.</p>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2026 <span>Teja Web Studio</span>. Personal Portfolio. Built with care.</p>
-  </footer>
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-box reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Have an Idea in Mind?</h2>
+      <p class="section-desc">Thanks for visiting Teja Web Studio. Contact information will be added here soon.</p>
+      <div class="contact-note">TEJA WEB STUDIO · PERSONAL PORTFOLIO</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="logo" href="#home">TEJA <span>WEB STUDIO.</span></a>
+    <p>© 2026 Teja Web Studio. Personal Portfolio.</p>
+    <p>Designed with <strong>purpose</strong>.</p>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+  menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(item => observer.observe(item));
+</script>
 </body>
 </html>
+
