@@ -5,22 +5,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090f1e">
-<meta name="description" content="Teja Web Studio creates modern, elegant and responsive digital experiences. Explore website design projects and creative work.">
-<title>Teja Web Studio | Crafting Digital Experiences</title>
-
+<meta name="description" content="Teja Web Studio - Modern, elegant and responsive website design portfolio.">
+<title>Teja Web Studio | Digital Experiences</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg:#090f1e;
-  --bg2:#101a30;
+  --panel:#101a2d;
   --gold:#d5ad69;
-  --gold-light:#f0d49c;
+  --light:#f0d49c;
   --white:#f7f5f0;
   --muted:#a5aec0;
-  --line:rgba(213,173,105,.2);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -31,53 +28,33 @@ body {
   line-height:1.7;
   overflow-x:hidden;
 }
-a { text-decoration:none; color:inherit; }
+a { color:inherit; text-decoration:none; }
 .container { width:min(1160px,90%); margin:auto; }
-.gold { color:var(--gold); }
-.serif { font-family:'Playfair Display',serif; }
 
 header {
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(9,15,30,.88);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(9,15,30,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #ffffff12;
 }
 nav {
-  min-height:78px;
+  min-height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:20px;
 }
-.logo {
-  font-size:20px;
-  font-weight:700;
-  letter-spacing:1px;
-}
+.logo { font-size:20px; font-weight:700; letter-spacing:1px; }
 .logo span { color:var(--gold); }
-.nav-links {
-  display:flex;
-  align-items:center;
-  gap:28px;
-  list-style:none;
-}
-.nav-links a {
-  font-size:13px;
-  color:#d7dce6;
-  transition:.3s;
-}
+.nav-links { display:flex; gap:27px; list-style:none; }
+.nav-links a { color:#d7dce6; font-size:13px; }
 .nav-links a:hover { color:var(--gold); }
-.nav-contact {
-  border:1px solid var(--gold);
-  padding:9px 17px;
-  border-radius:4px;
-}
 .menu-btn {
   display:none;
   background:none;
-  border:1px solid var(--line);
+  border:1px solid #d5ad6960;
   color:var(--gold);
   padding:7px 12px;
   font-size:20px;
@@ -85,285 +62,191 @@ nav {
 }
 
 .hero {
-  min-height:660px;
+  min-height:650px;
   display:flex;
   align-items:center;
+  background:
+    radial-gradient(ellipse at 80% 40%,#d5ad6920,transparent 40%),
+    linear-gradient(125deg,#090f1e,#172747);
   position:relative;
   overflow:hidden;
-  background:
-    radial-gradient(ellipse at 80% 45%,rgba(213,173,105,.12),transparent 38%),
-    linear-gradient(125deg,#090f1e,#111d35 70%,#0c1426);
 }
-.hero::before {
+.hero::after {
   content:"";
   position:absolute;
-  width:460px;
-  height:460px;
-  border:1px solid rgba(213,173,105,.18);
-  border-radius:50%;
+  width:400px;
+  height:400px;
   right:-100px;
-  top:70px;
-  box-shadow:0 0 0 45px rgba(213,173,105,.025),0 0 0 90px rgba(213,173,105,.02);
-  animation:float 8s ease-in-out infinite;
+  top:100px;
+  border:1px solid #d5ad6940;
+  border-radius:50%;
+  box-shadow:0 0 0 45px #d5ad6908,0 0 0 90px #d5ad6905;
 }
-.hero-content {
-  position:relative;
-  z-index:1;
-  padding:100px 0;
-  max-width:800px;
-  animation:fadeUp 1s ease both;
-}
-.eyebrow {
-  display:flex;
-  align-items:center;
-  gap:12px;
+.hero-content { position:relative; z-index:1; padding:100px 0; }
+.eyebrow,.section-label {
   color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:3px;
   font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
   font-weight:700;
-  margin-bottom:25px;
-}
-.eyebrow::before {
-  content:"";
-  width:35px;
-  height:1px;
-  background:var(--gold);
+  margin-bottom:20px;
 }
 .hero h1 {
   font-family:'Playfair Display',serif;
-  font-size:clamp(45px,7vw,82px);
-  line-height:1.08;
-  font-weight:600;
-  max-width:850px;
+  font-size:clamp(43px,7vw,78px);
+  line-height:1.1;
+  max-width:800px;
   margin-bottom:25px;
 }
-.hero h1 span {
-  color:var(--gold);
-  font-style:italic;
-}
-.hero p {
-  color:#bac3d3;
-  max-width:590px;
-  font-size:16px;
-  margin-bottom:35px;
-}
-.buttons { display:flex; gap:14px; flex-wrap:wrap; }
+.hero h1 span { color:var(--gold); font-style:italic; }
+.hero p { color:#bac3d3; max-width:590px; margin-bottom:32px; }
+.buttons { display:flex; flex-wrap:wrap; gap:13px; }
 .btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 24px;
+  display:inline-block;
+  padding:13px 23px;
   border-radius:4px;
   font-size:13px;
   font-weight:700;
   transition:.3s;
 }
-.btn-primary {
-  background:var(--gold);
-  color:#101626;
-}
-.btn-primary:hover {
-  background:var(--gold-light);
-  transform:translateY(-4px);
-  box-shadow:0 10px 30px rgba(213,173,105,.18);
-}
-.btn-outline {
-  border:1px solid rgba(255,255,255,.35);
-  color:white;
-}
-.btn-outline:hover {
-  border-color:var(--gold);
-  color:var(--gold);
-}
-.hero-note {
-  margin-top:60px;
-  color:#8994a9;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+.btn-primary { background:var(--gold); color:#101626; }
+.btn-primary:hover { background:var(--light); transform:translateY(-3px); }
+.btn-outline { border:1px solid #ffffff70; }
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); }
 
-section { padding:100px 0; }
-.section-top { margin-bottom:42px; }
-.section-label {
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  font-weight:700;
-  margin-bottom:12px;
-}
+section { padding:95px 0; }
 .section-title {
   font-family:'Playfair Display',serif;
-  font-size:clamp(32px,5vw,48px);
+  font-size:clamp(32px,5vw,47px);
   line-height:1.2;
-  color:var(--white);
-  margin-bottom:15px;
+  margin-bottom:16px;
 }
-.section-desc { color:var(--muted); max-width:650px; font-size:15px; }
+.section-desc { color:var(--muted); max-width:650px; }
+.section-top { margin-bottom:40px; }
 
 .about-grid {
   display:grid;
   grid-template-columns:1.1fr .9fr;
-  gap:65px;
+  gap:55px;
   align-items:center;
 }
-.about-copy p { color:var(--muted); margin-bottom:17px; }
+.about-copy p { color:var(--muted); margin-bottom:16px; }
 .about-visual {
-  min-height:330px;
+  min-height:320px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   padding:40px;
-  border:1px solid var(--line);
+  border:1px solid #d5ad6940;
   border-radius:8px;
-  background:
-    radial-gradient(circle at 80% 20%,rgba(213,173,105,.16),transparent 35%),
-    linear-gradient(140deg,#15213b,#0e172a);
+  background:linear-gradient(140deg,#172747,#0e172a);
   position:relative;
   overflow:hidden;
-}
-.about-visual::after {
-  content:"T";
-  position:absolute;
-  right:15px;
-  bottom:-110px;
-  font-family:'Playfair Display',serif;
-  font-size:300px;
-  color:rgba(213,173,105,.07);
 }
 .about-visual h3 {
   font-family:'Playfair Display',serif;
   font-size:32px;
-  color:var(--gold-light);
+  color:var(--light);
   position:relative;
   z-index:1;
 }
-.about-visual p {
-  color:#bac3d3;
-  max-width:300px;
-  margin-top:12px;
-  position:relative;
-  z-index:1;
-}
+.about-visual p { color:#bac3d3; margin-top:12px; position:relative; z-index:1; }
 
-.services-section { background:#0d1628; }
-.service-grid {
+.services-section,.process-section { background:#0d1628; }
+.service-grid,.project-grid,.process-grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:21px;
 }
 .service-card {
-  padding:32px 27px;
-  background:linear-gradient(145deg,#14213a,#101a2d);
-  border:1px solid rgba(255,255,255,.07);
+  padding:30px 25px;
+  background:linear-gradient(145deg,#172747,#101a2d);
+  border:1px solid #ffffff12;
   border-radius:7px;
-  transition:.35s;
+  transition:.3s;
 }
-.service-card:hover {
-  transform:translateY(-8px);
-  border-color:var(--line);
-  box-shadow:0 18px 40px rgba(0,0,0,.2);
+.service-card:hover,.project-card:hover {
+  transform:translateY(-7px);
+  border-color:#d5ad6980;
 }
 .service-icon {
-  width:48px;
-  height:48px;
+  width:47px;
+  height:47px;
   display:grid;
   place-items:center;
   color:var(--gold);
-  border:1px solid var(--line);
+  border:1px solid #d5ad6960;
   border-radius:6px;
-  font-size:23px;
-  margin-bottom:22px;
+  font-size:22px;
+  margin-bottom:20px;
 }
-.service-card h3 { font-size:18px; margin-bottom:10px; }
+.service-card h3 { margin-bottom:10px; font-size:18px; }
 .service-card p { color:var(--muted); font-size:13px; }
 
-.project-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
 .project-card {
-  border:1px solid rgba(255,255,255,.09);
-  background:#101a2d;
+  background:var(--panel);
+  border:1px solid #ffffff15;
   border-radius:8px;
   overflow:hidden;
-  transition:.35s;
-}
-.project-card:hover {
-  transform:translateY(-7px);
-  border-color:var(--gold);
+  transition:.3s;
 }
 .project-art {
-  height:190px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  background:
-    radial-gradient(circle at 70% 20%,rgba(213,173,105,.22),transparent 40%),
-    linear-gradient(135deg,#1d3152,#111b30);
-  color:var(--gold-light);
-  font-family:'Playfair Display',serif;
-  font-size:25px;
+  height:205px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#1d3152,#111b30);
 }
-.project-info { padding:25px; }
+.project-art img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s;
+}
+.project-card:hover .project-art img { transform:scale(1.06); }
+.project-info { padding:24px; }
 .project-info small {
   color:var(--gold);
   font-size:10px;
   letter-spacing:2px;
   text-transform:uppercase;
 }
-.project-info h3 { font-size:18px; margin:8px 0; }
+.project-info h3 { margin:8px 0; font-size:18px; }
 .project-info p { color:var(--muted); font-size:13px; min-height:65px; }
 .project-link {
   display:inline-block;
   color:var(--gold);
   font-size:12px;
   font-weight:700;
-  margin-top:15px;
+  margin-top:14px;
 }
-.project-link:hover { color:var(--gold-light); }
+.project-link:hover { color:var(--light); }
 
-.process-section { background:#0d1628; }
-.process-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-}
-.process-item { border-top:1px solid var(--line); padding-top:22px; }
+.process-item { border-top:1px solid #d5ad6960; padding-top:22px; }
 .process-number {
   color:var(--gold);
   font-family:'Playfair Display',serif;
   font-size:35px;
 }
-.process-item h3 { margin:10px 0; font-size:17px; }
+.process-item h3 { margin:10px 0; }
 .process-item p { color:var(--muted); font-size:13px; }
 
 .contact-section {
   text-align:center;
-  background:
-    radial-gradient(ellipse at 50% 100%,rgba(213,173,105,.13),transparent 55%),
-    #101a2d;
+  background:radial-gradient(ellipse at 50% 100%,#d5ad6920,transparent 55%),#101a2d;
 }
-.contact-section .section-desc { margin:0 auto 28px; }
 .contact-box {
   max-width:760px;
   margin:auto;
-  padding:55px 25px;
-  border:1px solid var(--line);
+  padding:50px 25px;
+  border:1px solid #d5ad6940;
   border-radius:9px;
-  background:rgba(255,255,255,.025);
 }
-.contact-box .section-title { margin-bottom:18px; }
-.contact-note { color:var(--gold-light); font-size:13px; }
+.contact-box .section-desc { margin:0 auto 25px; }
+.contact-note { color:var(--light); font-size:13px; }
 
 footer {
-  padding:30px 0;
-  border-top:1px solid rgba(255,255,255,.07);
+  padding:28px 0;
+  border-top:1px solid #ffffff12;
   color:#8d98ab;
   font-size:12px;
 }
@@ -378,47 +261,35 @@ footer strong { color:var(--gold); }
 
 .reveal {
   opacity:0;
-  transform:translateY(25px);
-  transition:opacity .7s ease, transform .7s ease;
+  transform:translateY(22px);
+  transition:opacity .7s,transform .7s;
 }
 .reveal.visible { opacity:1; transform:translateY(0); }
-
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(25px); }
-  to { opacity:1; transform:translateY(0); }
-}
-@keyframes float {
-  0%,100% { transform:translateY(0); }
-  50% { transform:translateY(18px); }
-}
 
 @media(max-width:800px) {
   .menu-btn { display:block; }
   .nav-links {
     display:none;
     position:absolute;
-    top:78px;
+    top:76px;
     left:0;
     width:100%;
     padding:22px 5%;
     background:#0d1628;
-    border-bottom:1px solid var(--line);
     flex-direction:column;
-    align-items:flex-start;
     gap:18px;
   }
   .nav-links.open { display:flex; }
-  .about-grid { grid-template-columns:1fr; gap:35px; }
+  .about-grid { grid-template-columns:1fr; gap:30px; }
   .service-grid,.project-grid,.process-grid { grid-template-columns:1fr; }
-  .hero { min-height:600px; }
-  section { padding:75px 0; }
-  .hero-note { margin-top:40px; }
+  section { padding:72px 0; }
+  .hero { min-height:580px; }
 }
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after {
-    scroll-behavior:auto !important;
     animation:none !important;
     transition:none !important;
+    scroll-behavior:auto !important;
   }
 }
 </style>
@@ -426,162 +297,172 @@ footer strong { color:var(--gold); }
 
 <body>
 <header>
-  <nav class="container">
-    <a href="#home" class="logo">TEJA <span>WEB STUDIO.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact" class="nav-contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav class="container">
+  <a href="#home" class="logo">TEJA <span>WEB STUDIO.</span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 </header>
 
 <main>
 <section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content">
-      <div class="eyebrow">Independent Creative Portfolio</div>
-      <h1>Crafting Digital<br><span>Experiences</span> with Purpose.</h1>
-      <p>Thoughtful website design, modern layouts and responsive digital experiences — built with creativity, curiosity and attention to detail.</p>
-      <div class="buttons">
-        <a href="#projects" class="btn btn-primary">Explore My Projects ↗</a>
-        <a href="#about" class="btn btn-outline">Discover My Story</a>
-      </div>
-      <div class="hero-note">Creative thinking · Modern design · Digital experiences</div>
+  <div class="container hero-content">
+    <div class="eyebrow">Independent Creative Portfolio</div>
+    <h1>Crafting Digital<br><span>Experiences</span> with Purpose.</h1>
+    <p>Thoughtful website design, modern layouts and responsive digital experiences — built with creativity, curiosity and attention to detail.</p>
+    <div class="buttons">
+      <a href="#projects" class="btn btn-primary">Explore My Projects ↗</a>
+      <a href="#about" class="btn btn-outline">Discover My Story</a>
     </div>
   </div>
 </section>
 
 <section id="about">
-  <div class="container about-grid">
-    <div class="about-copy reveal">
-      <div class="section-label">A Little About Me</div>
-      <h2 class="section-title">Designing Ideas Into Digital Experiences.</h2>
-      <p>Welcome to Teja Web Studio — my personal web design portfolio and creative space.</p>
-      <p>I enjoy exploring website design, creating responsive layouts and turning simple ideas into attractive digital experiences.</p>
-      <p>Every project is a chance to learn, experiment and make something better than before.</p>
-    </div>
-    <div class="about-visual reveal">
-      <h3>Ideas Into Reality.</h3>
-      <p>A personal journey built around creativity, technology and continuous learning.</p>
-    </div>
+<div class="container about-grid">
+  <div class="about-copy reveal">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Designing Ideas Into Digital Experiences.</h2>
+    <p>Welcome to Teja Web Studio — my personal web design portfolio and creative space.</p>
+    <p>I enjoy exploring website design, creating responsive layouts and turning simple ideas into attractive digital experiences.</p>
+    <p>Every project is a chance to learn, experiment and improve.</p>
   </div>
+  <div class="about-visual reveal">
+    <h3>Ideas Into Reality.</h3>
+    <p>A creative journey built around technology, design and continuous learning.</p>
+  </div>
+</div>
 </section>
 
 <section class="services-section" id="services">
-  <div class="container">
-    <div class="section-top reveal">
-      <div class="section-label">What I Explore</div>
-      <h2 class="section-title">Creative Areas</h2>
-      <p class="section-desc">The design and development areas I enjoy learning and working on.</p>
-    </div>
-    <div class="service-grid">
-      <article class="service-card reveal">
-        <div class="service-icon">✧</div>
-        <h3>Website Design</h3>
-        <p>Clean, elegant and modern website concepts with thoughtful visual layouts.</p>
-      </article>
-      <article class="service-card reveal">
-        <div class="service-icon">▣</div>
-        <h3>Responsive Layouts</h3>
-        <p>Flexible designs that adapt to mobile phones, tablets and desktop screens.</p>
-      </article>
-      <article class="service-card reveal">
-        <div class="service-icon">◇</div>
-        <h3>Landing Pages</h3>
-        <p>Focused one-page concepts to present ideas, products and business information.</p>
-      </article>
-    </div>
+<div class="container">
+  <div class="section-top reveal">
+    <div class="section-label">What I Explore</div>
+    <h2 class="section-title">Creative Areas</h2>
+    <p class="section-desc">The design and development areas I enjoy learning and working on.</p>
   </div>
+  <div class="service-grid">
+    <article class="service-card reveal">
+      <div class="service-icon">✧</div>
+      <h3>Website Design</h3>
+      <p>Clean, elegant and modern website concepts with thoughtful visual layouts.</p>
+    </article>
+    <article class="service-card reveal">
+      <div class="service-icon">▣</div>
+      <h3>Responsive Layouts</h3>
+      <p>Flexible designs that adapt to mobile phones, tablets and desktop screens.</p>
+    </article>
+    <article class="service-card reveal">
+      <div class="service-icon">◇</div>
+      <h3>Landing Pages</h3>
+      <p>Focused one-page concepts to present ideas, products and information.</p>
+    </article>
+  </div>
+</div>
 </section>
 
 <section id="projects">
-  <div class="container">
-    <div class="section-top reveal">
-      <div class="section-label">Selected Work</div>
-      <h2 class="section-title">Demo Projects</h2>
-      <p class="section-desc">A selection of personal practice projects created to explore website design and presentation.</p>
-    </div>
-    <div class="project-grid">
-      <article class="project-card reveal">
-        <div class="project-art">Sri Lakshmi<br>Grocery Store</div>
-        <div class="project-info">
-          <small>Store Website Concept</small>
-          <h3>Grocery Store</h3>
-          <p>A demo website concept for presenting grocery products and store information.</p>
-          <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">Explore Project ↗</a>
-        </div>
-      </article>
-      <article class="project-card reveal">
-        <div class="project-art">Ruchi<br>Restaurant</div>
-        <div class="project-info">
-          <small>Restaurant Website Concept</small>
-          <h3>Restaurant Website</h3>
-          <p>A restaurant demo concept with menu information and a clean visual layout.</p>
-          <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">Explore Project ↗</a>
-        </div>
-      </article>
-      <article class="project-card reveal">
-        <div class="project-art">Good Choice<br>Bakery & Sweets</div>
-        <div class="project-info">
-          <small>Bakery Website Concept</small>
-          <h3>Bakery Website</h3>
-          <p>A bakery and sweets demo website designed to showcase a local business concept.</p>
-          <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">Explore Project ↗</a>
-        </div>
-      </article>
-    </div>
+<div class="container">
+  <div class="section-top reveal">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title">Demo Projects</h2>
+    <p class="section-desc">A selection of personal practice projects created to explore website design.</p>
   </div>
+  <div class="project-grid">
+
+    <article class="project-card reveal">
+      <div class="project-art">
+        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fteja1437399.github.io%2FSri-Lakshmi-Grocery-%2F?w=900"
+        alt="Sri Lakshmi Grocery website preview" loading="lazy">
+      </div>
+      <div class="project-info">
+        <small>Store Website Concept</small>
+        <h3>Sri Lakshmi Grocery</h3>
+        <p>A demo website concept for presenting grocery products and store information.</p>
+        <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">Explore Project ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="project-art">
+        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fteja1437399.github.io%2Fruchi-restaurant%2F?w=900"
+        alt="Ruchi Restaurant website preview" loading="lazy">
+      </div>
+      <div class="project-info">
+        <small>Restaurant Website Concept</small>
+        <h3>Ruchi Restaurant</h3>
+        <p>A restaurant demo concept with menu information and a clean visual layout.</p>
+        <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">Explore Project ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="project-art">
+        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fteja1437399.github.io%2Fbest-of-bakerys-demo%2F?w=900"
+        alt="Good Choice Bakery website preview" loading="lazy">
+      </div>
+      <div class="project-info">
+        <small>Bakery Website Concept</small>
+        <h3>Good Choice Bakery</h3>
+        <p>A bakery and sweets demo website designed to showcase a business concept.</p>
+        <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">Explore Project ↗</a>
+      </div>
+    </article>
+
+  </div>
+</div>
 </section>
 
 <section class="process-section">
-  <div class="container">
-    <div class="section-top reveal">
-      <div class="section-label">My Approach</div>
-      <h2 class="section-title">From Idea to Experience</h2>
-      <p class="section-desc">A simple creative process behind every practice project.</p>
+<div class="container">
+  <div class="section-top reveal">
+    <div class="section-label">My Approach</div>
+    <h2 class="section-title">From Idea to Experience</h2>
+    <p class="section-desc">A simple creative process behind every practice project.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-item reveal">
+      <div class="process-number">01</div>
+      <h3>Understand</h3>
+      <p>Start with the idea, purpose and people the website is meant to serve.</p>
     </div>
-    <div class="process-grid">
-      <div class="process-item reveal">
-        <div class="process-number">01</div>
-        <h3>Understand</h3>
-        <p>Start with the idea, purpose and people the website is meant to serve.</p>
-      </div>
-      <div class="process-item reveal">
-        <div class="process-number">02</div>
-        <h3>Design</h3>
-        <p>Explore layout, colors and content to create a clear visual direction.</p>
-      </div>
-      <div class="process-item reveal">
-        <div class="process-number">03</div>
-        <h3>Improve</h3>
-        <p>Test the experience, refine details and keep learning with every project.</p>
-      </div>
+    <div class="process-item reveal">
+      <div class="process-number">02</div>
+      <h3>Design</h3>
+      <p>Explore layout, colors and content to create a clear visual direction.</p>
+    </div>
+    <div class="process-item reveal">
+      <div class="process-number">03</div>
+      <h3>Improve</h3>
+      <p>Test the experience, refine details and keep learning with every project.</p>
     </div>
   </div>
+</div>
 </section>
 
 <section class="contact-section" id="contact">
-  <div class="container">
-    <div class="contact-box reveal">
-      <div class="section-label">Get In Touch</div>
-      <h2 class="section-title">Have an Idea in Mind?</h2>
-      <p class="section-desc">Thanks for visiting Teja Web Studio. Contact information will be added here soon.</p>
-      <div class="contact-note">TEJA WEB STUDIO · PERSONAL PORTFOLIO</div>
-    </div>
+<div class="container">
+  <div class="contact-box reveal">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Have an Idea in Mind?</h2>
+    <p class="section-desc">Thanks for visiting Teja Web Studio. Contact information will be added here soon.</p>
+    <div class="contact-note">TEJA WEB STUDIO · PERSONAL PORTFOLIO</div>
   </div>
+</div>
 </section>
 </main>
 
 <footer>
-  <div class="container footer-inner">
-    <a class="logo" href="#home">TEJA <span>WEB STUDIO.</span></a>
-    <p>© 2026 Teja Web Studio. Personal Portfolio.</p>
-    <p>Designed with <strong>purpose</strong>.</p>
-  </div>
+<div class="container footer-inner">
+  <a class="logo" href="#home">TEJA <span>WEB STUDIO.</span></a>
+  <p>© 2026 Teja Web Studio. Personal Portfolio.</p>
+  <p>Designed with <strong>purpose</strong>.</p>
+</div>
 </footer>
 
 <script>
@@ -589,9 +470,9 @@ const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded", String(isOpen));
-  menuBtn.textContent = isOpen ? "✕" : "☰";
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.textContent = open ? "✕" : "☰";
 });
 
 document.querySelectorAll(".nav-links a").forEach(link => {
@@ -609,7 +490,7 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold:0.12 });
 
 document.querySelectorAll(".reveal").forEach(item => observer.observe(item));
 </script>
