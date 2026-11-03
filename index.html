@@ -5,24 +5,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#081426">
-<title>Teja Web Studio | Creative Website Design</title>
-<meta name="description" content="Teja Web Studio - Creative website design and digital experiences.">
+
+<title>Teja Web Studio | Website Design & Digital Creative Services</title>
+
+<meta name="description" content="Teja Web Studio offers creative website design, responsive business websites, digital menus and AI promotional poster designs for small businesses.">
+<meta name="keywords" content="Teja Web Studio, website design, business website, digital menu, promotional posters, web design India">
+<meta name="author" content="Teja Web Studio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://teja1437399.github.io/Teja-web-studio-/">
+
+<meta property="og:title" content="Teja Web Studio | Creative Digital Services">
+<meta property="og:description" content="Creative websites, digital menus and promotional poster designs for businesses.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teja1437399.github.io/Teja-web-studio-/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-:root {
+:root{
   --navy:#081426;
   --navy2:#10223b;
   --gold:#d8b56d;
   --cream:#f5f0e6;
   --muted:#aeb9c8;
+  --green:#19b966;
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+
 body{
   background:var(--navy);
   color:var(--cream);
@@ -30,44 +46,87 @@ body{
   line-height:1.7;
   overflow-x:hidden;
 }
+
 a{text-decoration:none;color:inherit}
+button{font-family:inherit}
 .container{width:min(1120px,90%);margin:auto}
 .gold{color:var(--gold)}
-h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.2}
-h2{font-size:clamp(32px,5vw,48px);margin:12px 0 18px}
+
+h1,h2,h3{
+  font-family:"Playfair Display",serif;
+  line-height:1.2;
+}
+
+h2{
+  font-size:clamp(32px,5vw,48px);
+  margin:12px 0 18px;
+}
+
 p{color:var(--muted)}
+
 .eyebrow{
   color:var(--gold);
   text-transform:uppercase;
   letter-spacing:3px;
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
 }
 
+section{padding:95px 0}
+
+.section-head{
+  max-width:690px;
+  margin-bottom:45px;
+}
+
+.section-head p{max-width:620px}
+
 /* HEADER */
+
 header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(8,20,38,.95);
+  z-index:1000;
+  background:rgba(8,20,38,.96);
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(216,181,109,.16);
 }
+
 nav{
   min-height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
+
 .logo{
   font-family:"Playfair Display",serif;
   font-size:23px;
   font-weight:700;
 }
+
 .logo span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-size:13px;color:#d4dbe5;transition:.3s}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:26px;
+}
+
+.nav-links a{
+  font-size:13px;
+  color:#d4dbe5;
+  transition:.3s;
+}
+
 .nav-links a:hover{color:var(--gold)}
+
+.nav-contact{
+  padding:9px 16px;
+  border:1px solid #d8b56d80;
+  border-radius:4px;
+}
+
 .menu-btn{
   display:none;
   border:0;
@@ -78,20 +137,40 @@ nav{
 }
 
 /* HERO */
+
 .hero{
   min-height:650px;
   display:flex;
   align-items:center;
   padding:100px 0;
   background:
-    radial-gradient(circle at 80% 30%,rgba(216,181,109,.13),transparent 32%),
+    radial-gradient(circle at 80% 30%,rgba(216,181,109,.16),transparent 32%),
     linear-gradient(135deg,#081426,#10223b);
+  position:relative;
+  overflow:hidden;
 }
-.hero-content{max-width:760px}
-.hero h1{font-size:clamp(44px,7vw,76px);margin:22px 0}
+
+.hero-content{max-width:790px}
+
+.hero h1{
+  font-size:clamp(44px,7vw,76px);
+  margin:22px 0;
+}
+
 .hero h1 span{color:var(--gold)}
-.hero p{max-width:620px;font-size:17px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+
+.hero p{
+  max-width:650px;
+  font-size:17px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:34px;
+}
+
 .btn{
   display:inline-flex;
   align-items:center;
@@ -100,47 +179,81 @@ nav{
   padding:14px 23px;
   border-radius:5px;
   font-size:13px;
-  font-weight:700;
+  font-weight:800;
   transition:.3s;
 }
-.btn-gold{background:var(--gold);color:#111b2a}
-.btn-gold:hover{transform:translateY(-4px);box-shadow:0 12px 28px #d8b56d30}
-.btn-outline{border:1px solid #d8b56d80;color:var(--cream)}
+
+.btn-gold{
+  background:var(--gold);
+  color:#111b2a;
+}
+
+.btn-gold:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px #d8b56d30;
+}
+
+.btn-outline{
+  border:1px solid #d8b56d80;
+  color:var(--cream);
+}
+
 .btn-outline:hover{background:#d8b56d18}
 
-/* GENERAL SECTIONS */
-section{padding:100px 0}
-.section-head{max-width:680px;margin-bottom:45px}
-.section-head p{max-width:600px}
+.hero-tag{
+  display:inline-block;
+  margin-top:25px;
+  padding:8px 14px;
+  border:1px solid #d8b56d40;
+  border-radius:30px;
+  color:#e7d5ae;
+  font-size:12px;
+}
 
 /* ABOUT */
+
 .about-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:65px;
+  gap:60px;
   align-items:center;
 }
+
 .about-art{
-  min-height:330px;
+  min-height:340px;
   border:1px solid #d8b56d55;
   border-radius:8px;
   display:grid;
   place-items:center;
   text-align:center;
   padding:30px;
-  background:radial-gradient(circle,#d8b56d20,transparent 65%),#10223b;
+  background:
+    radial-gradient(circle,#d8b56d20,transparent 65%),
+    #10223b;
 }
-.about-art i{font-size:70px;color:var(--gold)}
-.about-art h3{font-size:30px;margin-top:18px}
+
+.about-art i{
+  font-size:70px;
+  color:var(--gold);
+}
+
+.about-art h3{
+  font-size:30px;
+  margin-top:18px;
+}
+
 .about-copy p{margin:15px 0}
 
 /* SERVICES */
+
 .services,.process{background:#0c1a2e}
+
 .service-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:22px;
 }
+
 .service-card{
   padding:32px 26px;
   border:1px solid #d8b56d26;
@@ -148,16 +261,123 @@ section{padding:100px 0}
   background:#10223b;
   transition:.3s;
 }
-.service-card:hover{transform:translateY(-7px);border-color:var(--gold)}
-.service-card i{font-size:28px;color:var(--gold);margin-bottom:20px}
-.service-card h3{font-size:22px;margin-bottom:12px}
+
+.service-card:hover{
+  transform:translateY(-7px);
+  border-color:var(--gold);
+}
+
+.service-card i{
+  font-size:30px;
+  color:var(--gold);
+  margin-bottom:20px;
+}
+
+.service-card h3{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.service-card p{
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.service-link{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:800;
+}
+
+/* POSTER SAMPLES */
+
+.poster-section{
+  background:
+    radial-gradient(circle at 10% 30%,#d8b56d12,transparent 35%),
+    #081426;
+}
+
+.poster-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.poster-card{
+  background:#10223b;
+  border:1px solid #d8b56d35;
+  border-radius:9px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.poster-card:hover{transform:translateY(-7px)}
+
+.poster-design{
+  min-height:265px;
+  padding:25px 18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.poster-design i{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.poster-design h3{
+  font-size:27px;
+  margin-bottom:10px;
+}
+
+.poster-design p{
+  font-size:12px;
+  color:inherit;
+}
+
+.poster-design small{
+  margin-top:18px;
+  letter-spacing:2px;
+  font-weight:800;
+}
+
+.poster-grocery{
+  background:linear-gradient(145deg,#164b37,#0c2d24);
+  color:#f8e7a8;
+}
+
+.poster-restaurant{
+  background:linear-gradient(145deg,#702c20,#24100e);
+  color:#ffdc9a;
+}
+
+.poster-bakery{
+  background:linear-gradient(145deg,#e8b77f,#8d4d32);
+  color:#fff5df;
+}
+
+.poster-info{padding:20px}
+
+.poster-info h3{
+  font-size:20px;
+  margin-bottom:7px;
+}
+
+.poster-info p{font-size:13px}
 
 /* PROJECTS */
+
 .project-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:24px;
 }
+
 .project-card{
   overflow:hidden;
   border-radius:8px;
@@ -165,13 +385,16 @@ section{padding:100px 0}
   background:#10223b;
   transition:.3s;
 }
+
 .project-card:hover{transform:translateY(-7px)}
+
 .mockup{
   height:205px;
   padding:14px;
   background:#e9e6df;
   color:#17243a;
 }
+
 .browser-bar{
   height:18px;
   display:flex;
@@ -179,10 +402,14 @@ section{padding:100px 0}
   gap:5px;
   margin-bottom:12px;
 }
+
 .browser-bar span{
-  width:7px;height:7px;border-radius:50%;
+  width:7px;
+  height:7px;
+  border-radius:50%;
   background:#d0a45c;
 }
+
 .mock-content{
   height:150px;
   border-radius:4px;
@@ -194,44 +421,127 @@ section{padding:100px 0}
   padding:12px;
   background:#fff;
 }
-.mock-content h3{font-size:22px;color:#183b2b}
-.mock-content p{color:#52616a;font-size:11px;margin-top:6px}
-.mock-content.restaurant{background:#2a1d19;color:white}
+
+.mock-content h3{
+  font-size:22px;
+  color:#183b2b;
+}
+
+.mock-content p{
+  color:#52616a;
+  font-size:11px;
+  margin-top:6px;
+}
+
+.mock-content.restaurant{
+  background:#2a1d19;
+  color:white;
+}
+
 .mock-content.restaurant h3{color:#f2c879}
 .mock-content.restaurant p{color:#e7d6c5}
+
 .mock-content.bakery{background:#fff1df}
 .mock-content.bakery h3{color:#854b36}
+
 .project-info{padding:23px}
-.project-info small{color:var(--gold);letter-spacing:1px}
-.project-info h3{font-size:22px;margin:8px 0}
-.project-info p{font-size:13px;margin-bottom:18px}
-.project-link{color:var(--gold);font-size:13px;font-weight:700}
-.project-link:hover{text-decoration:underline}
+
+.project-info small{
+  color:var(--gold);
+  letter-spacing:1px;
+}
+
+.project-info h3{
+  font-size:22px;
+  margin:8px 0;
+}
+
+.project-info p{
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.project-link{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:800;
+}
 
 /* PROCESS */
+
 .process-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:25px;
 }
-.process-card{border-top:1px solid #d8b56d70;padding-top:22px}
-.process-card strong{color:var(--gold);font-size:30px}
-.process-card h3{font-size:23px;margin:12px 0}
+
+.process-card{
+  border-top:1px solid #d8b56d70;
+  padding-top:22px;
+}
+
+.process-card strong{
+  color:var(--gold);
+  font-size:30px;
+}
+
+.process-card h3{
+  font-size:23px;
+  margin:12px 0;
+}
+
+/* WHY CHOOSE US */
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.why-item{
+  display:flex;
+  gap:17px;
+  padding:23px;
+  border:1px solid #d8b56d25;
+  border-radius:7px;
+  background:#10223b;
+}
+
+.why-item i{
+  color:var(--gold);
+  font-size:23px;
+  margin-top:5px;
+}
+
+.why-item h3{
+  font-size:19px;
+  margin-bottom:6px;
+}
+
+.why-item p{font-size:13px}
 
 /* CONTACT */
+
 .contact{
   text-align:center;
   background:
     radial-gradient(circle at center,#d8b56d18,transparent 55%),
     #081426;
 }
-.contact-inner{max-width:720px;margin:auto}
-.contact-inner p{margin:0 auto 30px;max-width:600px}
 
-/* PREMIUM WHATSAPP BUTTON */
+.contact-inner{
+  max-width:720px;
+  margin:auto;
+}
+
+.contact-inner p{
+  margin:0 auto 30px;
+  max-width:600px;
+}
+
 .whatsapp-wrap{margin:32px auto 18px}
+
 .whatsapp-btn{
-  position:relative;
   display:inline-flex;
   align-items:center;
   gap:14px;
@@ -241,33 +551,34 @@ section{padding:100px 0}
   background:linear-gradient(135deg,#20c96b,#0b9f55);
   border:1px solid #74f0a8;
   box-shadow:0 8px 28px rgba(32,201,107,.23);
-  transition:transform .3s,box-shadow .3s;
-  animation:whatsappGlow 2.8s infinite;
+  transition:.3s;
 }
+
 .whatsapp-btn:hover{
   transform:translateY(-5px) scale(1.025);
   box-shadow:0 14px 35px rgba(32,201,107,.38);
 }
+
 .whatsapp-icon{
-  width:43px;height:43px;
+  width:43px;
+  height:43px;
   border-radius:50%;
   display:grid;
   place-items:center;
   background:rgba(255,255,255,.17);
   font-size:25px;
 }
+
 .whatsapp-label{
   display:flex;
   flex-direction:column;
   text-align:left;
   line-height:1.35;
 }
-.whatsapp-label strong{font-size:15px;letter-spacing:.2px}
-.whatsapp-label small{font-size:11px;opacity:.9;margin-top:3px}
-@keyframes whatsappGlow{
-  0%,100%{box-shadow:0 8px 28px rgba(32,201,107,.20)}
-  50%{box-shadow:0 8px 34px rgba(32,201,107,.40)}
-}
+
+.whatsapp-label strong{font-size:15px}
+.whatsapp-label small{font-size:11px;margin-top:3px}
+
 .contact-note{
   font-size:11px;
   color:#8f9dad;
@@ -276,23 +587,37 @@ section{padding:100px 0}
 }
 
 /* FOOTER */
+
 footer{
   border-top:1px solid #d8b56d25;
   padding:28px 0;
   text-align:center;
 }
-footer p{font-size:12px;margin:4px 0}
+
+footer p{
+  font-size:12px;
+  margin:4px 0;
+}
 
 /* ANIMATIONS */
+
 .reveal{
   opacity:0;
   transform:translateY(22px);
   transition:.7s ease;
 }
-.reveal.show{opacity:1;transform:translateY(0)}
 
-@media(max-width:800px){
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
   .menu-btn{display:block}
+
   .nav-links{
     display:none;
     position:absolute;
@@ -306,12 +631,25 @@ footer p{font-size:12px;margin:4px 0}
     align-items:flex-start;
     gap:18px;
   }
+
   .nav-links.open{display:flex}
+
   .about-grid{grid-template-columns:1fr;gap:30px}
-  .service-grid,.project-grid,.process-grid{grid-template-columns:1fr}
+
+  .service-grid,
+  .project-grid,
+  .process-grid,
+  .poster-grid{
+    grid-template-columns:1fr;
+  }
+
+  .why-grid{grid-template-columns:1fr}
+
   .hero{min-height:570px}
+
   section{padding:75px 0}
 }
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{
     scroll-behavior:auto!important;
@@ -320,6 +658,16 @@ footer p{font-size:12px;margin:4px 0}
   }
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Teja Web Studio",
+  "url":"https://teja1437399.github.io/Teja-web-studio-/",
+  "description":"Creative website design, digital menus and promotional poster design concepts."
+}
+</script>
 </head>
 
 <body>
@@ -327,88 +675,260 @@ footer p{font-size:12px;margin:4px 0}
 <header>
   <nav class="container">
     <a class="logo" href="#home">TEJA <span>WEB STUDIO.</span></a>
+
     <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
       <i class="fa-solid fa-bars"></i>
     </button>
+
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#posters">Poster Samples</a>
       <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-contact">Contact</a>
     </div>
   </nav>
 </header>
 
 <main>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
   <div class="container hero-content reveal">
-    <div class="eyebrow">Independent Creative Portfolio</div>
-    <h1>Crafting Digital<br><span>Experiences</span> with Purpose.</h1>
-    <p>Thoughtful website design, modern layouts and responsive digital experiences — built with creativity, curiosity and attention to detail.</p>
+
+    <div class="eyebrow">Creative Digital Studio</div>
+
+    <h1>
+      Building Digital<br>
+      <span>Experiences</span> for Growing Ideas.
+    </h1>
+
+    <p>
+      Creative website design, digital menus and promotional poster concepts
+      to help small businesses present their ideas online.
+    </p>
+
     <div class="hero-actions">
-      <a class="btn btn-gold" href="#projects">Explore My Projects <i class="fa-solid fa-arrow-right"></i></a>
-      <a class="btn btn-outline" href="#about">Discover My Story</a>
+      <a class="btn btn-gold" href="#projects">
+        Explore Our Work <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <a class="btn btn-outline" href="#contact">
+        Contact Studio
+      </a>
     </div>
+
+    <div class="hero-tag">
+      <i class="fa-solid fa-star gold"></i>
+      Creative Design · Modern Websites · Digital Solutions
+    </div>
+
   </div>
 </section>
 
+<!-- ABOUT -->
+
 <section id="about">
   <div class="container about-grid">
+
     <div class="about-art reveal">
       <div>
         <i class="fa-solid fa-laptop-code"></i>
         <h3>Ideas Into Reality.</h3>
-        <p>A creative journey built around technology, design and continuous learning.</p>
+        <p>
+          A creative journey built around technology,
+          design and continuous learning.
+        </p>
       </div>
     </div>
+
     <div class="about-copy reveal">
-      <div class="eyebrow">About Me</div>
-      <h2>Designing Ideas Into <span class="gold">Digital Experiences.</span></h2>
-      <p>Welcome to Teja Web Studio — my personal web design portfolio and creative space.</p>
-      <p>I enjoy exploring website design, creating responsive layouts and turning simple ideas into attractive digital experiences.</p>
-      <p>Every project is a chance to learn, experiment and improve.</p>
+      <div class="eyebrow">About The Studio</div>
+
+      <h2>
+        Creative Thinking.
+        <span class="gold">Digital Results.</span>
+      </h2>
+
+      <p>
+        Welcome to Teja Web Studio — a growing creative space
+        focused on website design and digital presentation.
+      </p>
+
+      <p>
+        We explore modern website layouts, responsive designs,
+        digital menus and promotional poster concepts.
+      </p>
+
+      <p>
+        Our goal is to help small businesses present their
+        products, services and ideas through attractive digital experiences.
+      </p>
     </div>
+
   </div>
 </section>
+
+<!-- SERVICES -->
 
 <section class="services" id="services">
   <div class="container">
+
     <div class="section-head reveal">
-      <div class="eyebrow">What I Explore</div>
-      <h2>Creative <span class="gold">Areas</span></h2>
-      <p>The design and development areas I enjoy learning and working on.</p>
+      <div class="eyebrow">What We Offer</div>
+      <h2>Our Creative <span class="gold">Services</span></h2>
+      <p>
+        Digital design services and concepts for shops,
+        restaurants and growing businesses.
+      </p>
     </div>
+
     <div class="service-grid">
+
       <article class="service-card reveal">
-        <i class="fa-solid fa-pen-ruler"></i>
-        <h3>Website Design</h3>
-        <p>Clean, elegant and modern website concepts with thoughtful visual layouts.</p>
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Business Website Design</h3>
+        <p>
+          Modern website concepts to introduce your business,
+          services, products and contact details.
+        </p>
+        <a class="service-link" href="#contact">Enquire Now →</a>
       </article>
+
+      <article class="service-card reveal">
+        <i class="fa-solid fa-utensils"></i>
+        <h3>Digital Menu Design</h3>
+        <p>
+          Attractive digital menu layouts for restaurants,
+          cafes and food businesses.
+        </p>
+        <a class="service-link" href="#contact">Enquire Now →</a>
+      </article>
+
+      <article class="service-card reveal">
+        <i class="fa-solid fa-image"></i>
+        <h3>AI Promotional Posters</h3>
+        <p>
+          Creative promotional poster concepts for new products,
+          offers and business announcements.
+        </p>
+        <a class="service-link" href="#posters">View Samples →</a>
+      </article>
+
       <article class="service-card reveal">
         <i class="fa-solid fa-mobile-screen-button"></i>
         <h3>Responsive Layouts</h3>
-        <p>Flexible designs that adapt to mobile phones, tablets and desktop screens.</p>
+        <p>
+          Flexible website layouts designed to adapt
+          to mobile phones, tablets and desktops.
+        </p>
+        <a class="service-link" href="#contact">Enquire Now →</a>
       </article>
+
       <article class="service-card reveal">
         <i class="fa-solid fa-window-maximize"></i>
         <h3>Landing Pages</h3>
-        <p>Focused one-page concepts to present ideas, products and information.</p>
+        <p>
+          Focused one-page website concepts to present
+          a product, service or business.
+        </p>
+        <a class="service-link" href="#contact">Enquire Now →</a>
       </article>
+
+      <article class="service-card reveal">
+        <i class="fa-solid fa-store"></i>
+        <h3>Product Showcase</h3>
+        <p>
+          Simple online catalogues to display products,
+          images and business information.
+        </p>
+        <a class="service-link" href="#contact">Enquire Now →</a>
+      </article>
+
     </div>
   </div>
 </section>
 
+<!-- POSTER SAMPLES -->
+
+<section class="poster-section" id="posters">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">Creative Gallery</div>
+      <h2>Promotional <span class="gold">Poster Samples</span></h2>
+      <p>
+        Sample poster concepts showing different visual
+        directions for business promotions.
+      </p>
+    </div>
+
+    <div class="poster-grid">
+
+      <article class="poster-card reveal">
+        <div class="poster-design poster-grocery">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <h3>FRESH & DAILY</h3>
+          <p>Everyday Essentials</p>
+          <p>Quality Products · Friendly Service</p>
+          <small>GROCERY STORE SAMPLE</small>
+        </div>
+        <div class="poster-info">
+          <h3>Grocery Promotion</h3>
+          <p>A sample creative concept for grocery stores.</p>
+        </div>
+      </article>
+
+      <article class="poster-card reveal">
+        <div class="poster-design poster-restaurant">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>THE FOOD CORNER</h3>
+          <p>Good Food. Great Moments.</p>
+          <p>Restaurant Promotion Concept</p>
+          <small>RESTAURANT SAMPLE</small>
+        </div>
+        <div class="poster-info">
+          <h3>Restaurant Promotion</h3>
+          <p>A sample visual direction for food businesses.</p>
+        </div>
+      </article>
+
+      <article class="poster-card reveal">
+        <div class="poster-design poster-bakery">
+          <i class="fa-solid fa-cake-candles"></i>
+          <h3>SWEET MOMENTS</h3>
+          <p>Freshly Baked Happiness</p>
+          <p>Bakery & Sweets Concept</p>
+          <small>BAKERY SAMPLE</small>
+        </div>
+        <div class="poster-info">
+          <h3>Bakery Promotion</h3>
+          <p>A sample poster concept for bakeries and sweet shops.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+
 <section id="projects">
   <div class="container">
+
     <div class="section-head reveal">
       <div class="eyebrow">Selected Work</div>
-      <h2>Demo <span class="gold">Projects</span></h2>
-      <p>A selection of personal practice projects created to explore website design.</p>
+      <h2>Website <span class="gold">Projects</span></h2>
+      <p>
+        Personal demo projects created to explore website
+        design and business presentation.
+      </p>
     </div>
 
     <div class="project-grid">
+
       <article class="project-card reveal">
         <div class="mockup">
           <div class="browser-bar"><span></span><span></span><span></span></div>
@@ -418,11 +938,19 @@ footer p{font-size:12px;margin:4px 0}
             <p>Everyday essentials, all in one place.</p>
           </div>
         </div>
+
         <div class="project-info">
           <small>STORE WEBSITE CONCEPT</small>
           <h3>Sri Lakshmi Grocery</h3>
-          <p>A demo website concept for presenting grocery products and store information.</p>
-          <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <p>
+            A demo website concept for presenting grocery
+            products and store information.
+          </p>
+          <a class="project-link"
+             href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/"
+             target="_blank" rel="noopener">
+            Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
         </div>
       </article>
 
@@ -435,11 +963,19 @@ footer p{font-size:12px;margin:4px 0}
             <p>Discover delicious food and more.</p>
           </div>
         </div>
+
         <div class="project-info">
           <small>RESTAURANT WEBSITE CONCEPT</small>
           <h3>Ruchi Restaurant</h3>
-          <p>A restaurant demo concept with menu information and a clean visual layout.</p>
-          <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <p>
+            A restaurant demo concept with menu information
+            and a clean visual layout.
+          </p>
+          <a class="project-link"
+             href="https://teja1437399.github.io/ruchi-restaurant/"
+             target="_blank" rel="noopener">
+            Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
         </div>
       </article>
 
@@ -452,66 +988,152 @@ footer p{font-size:12px;margin:4px 0}
             <p>A little sweetness for every moment.</p>
           </div>
         </div>
+
         <div class="project-info">
           <small>BAKERY WEBSITE CONCEPT</small>
           <h3>Good Choice Bakery</h3>
-          <p>A bakery and sweets demo website designed to showcase a business concept.</p>
-          <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <p>
+            A bakery and sweets demo website designed
+            to showcase a business concept.
+          </p>
+          <a class="project-link"
+             href="https://teja1437399.github.io/best-of-bakerys-demo/"
+             target="_blank" rel="noopener">
+            Explore Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
         </div>
       </article>
+
     </div>
   </div>
 </section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="services">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Approach</div>
+      <h2>Why Explore <span class="gold">With Us?</span></h2>
+      <p>
+        A simple, thoughtful approach to creating
+        useful digital experiences.
+      </p>
+    </div>
+
+    <div class="why-grid">
+
+      <article class="why-item reveal">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <div>
+          <h3>Mobile-Friendly Designs</h3>
+          <p>Layouts designed to work across different screen sizes.</p>
+        </div>
+      </article>
+
+      <article class="why-item reveal">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <h3>Creative Ideas</h3>
+          <p>Thoughtful visual concepts for different business needs.</p>
+        </div>
+      </article>
+
+      <article class="why-item reveal">
+        <i class="fa-solid fa-comments"></i>
+        <div>
+          <h3>Clear Communication</h3>
+          <p>Discuss project requirements before starting the work.</p>
+        </div>
+      </article>
+
+      <article class="why-item reveal">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <div>
+          <h3>Custom Concepts</h3>
+          <p>Design ideas shaped around the project and its purpose.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
 
 <section class="process">
   <div class="container">
+
     <div class="section-head reveal">
-      <div class="eyebrow">My Approach</div>
+      <div class="eyebrow">Our Process</div>
       <h2>From Idea to <span class="gold">Experience</span></h2>
-      <p>A simple creative process behind every practice project.</p>
+      <p>A simple process behind every project.</p>
     </div>
+
     <div class="process-grid">
+
       <article class="process-card reveal">
         <strong>01</strong>
         <h3>Understand</h3>
-        <p>Start with the idea, purpose and people the website is meant to serve.</p>
+        <p>Discuss the idea, requirements and purpose of the project.</p>
       </article>
+
       <article class="process-card reveal">
         <strong>02</strong>
-        <h3>Design</h3>
-        <p>Explore layout, colors and content to create a clear visual direction.</p>
+        <h3>Create</h3>
+        <p>Develop the design concept and organize the content.</p>
       </article>
+
       <article class="process-card reveal">
         <strong>03</strong>
-        <h3>Improve</h3>
-        <p>Test the experience, refine details and keep learning with every project.</p>
+        <h3>Review</h3>
+        <p>Review the result and make agreed improvements.</p>
       </article>
+
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
+
 <section class="contact" id="contact">
   <div class="container contact-inner reveal">
+
     <div class="eyebrow">Get In Touch</div>
-    <h2>Let's Create Something <span class="gold">Great.</span></h2>
-    <p>Have a website idea or project in mind? Let's connect and talk about your ideas.</p>
+
+    <h2>
+      Have a Project in <span class="gold">Mind?</span>
+    </h2>
+
+    <p>
+      Tell us about your website, digital menu or promotional
+      design idea. Let's discuss what you need.
+    </p>
 
     <div class="whatsapp-wrap">
       <a class="whatsapp-btn"
-         href="https://wa.me/918185961687?text=Hello%20Teja%20Web%20Studio!%20I%20would%20like%20to%20know%20more%20about%20your%20website%20design%20work."
+         href="https://wa.me/918185961687text=Hello%20Teja%20Web%20Studio!%20I%20would%20like%20to%20know%20about%20your%20services."
          target="_blank"
          rel="noopener">
+
         <span class="whatsapp-icon">
           <i class="fa-brands fa-whatsapp"></i>
         </span>
+
         <span class="whatsapp-label">
           <strong>Chat on WhatsApp</strong>
-          <small>Let's talk about your project</small>
+          <small>Discuss your project</small>
         </span>
+
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
-    <div class="contact-note">QUICK RESPONSE · FRIENDLY COMMUNICATION</div>
+
+    <div class="contact-note">
+      WEBSITE DESIGN · DIGITAL MENUS · PROMOTIONAL DESIGNS
+    </div>
+
   </div>
 </section>
 
@@ -519,8 +1141,8 @@ footer p{font-size:12px;margin:4px 0}
 
 <footer>
   <div class="container">
-    <p><span class="gold">TEJA WEB STUDIO</span> · PERSONAL PORTFOLIO</p>
-    <p>© 2026 Teja Web Studio. Personal Portfolio.</p>
+    <p><span class="gold">TEJA WEB STUDIO</span> · CREATIVE DIGITAL SERVICES</p>
+    <p>© <span id="year"></span> Teja Web Studio. All rights reserved.</p>
     <p>Designed with purpose.</p>
   </div>
 </footer>
@@ -531,7 +1153,9 @@ const navLinks=document.getElementById("navLinks");
 
 menuBtn.addEventListener("click",()=>{
   const isOpen=navLinks.classList.toggle("open");
+
   menuBtn.setAttribute("aria-expanded",isOpen);
+
   menuBtn.innerHTML=isOpen
     ? '<i class="fa-solid fa-xmark"></i>'
     : '<i class="fa-solid fa-bars"></i>';
@@ -544,6 +1168,8 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
     menuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';
   });
 });
+
+document.getElementById("year").textContent=new Date().getFullYear();
 
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
@@ -561,5 +1187,3 @@ document.querySelectorAll(".reveal").forEach(element=>{
 
 </body>
 </html>
-
-
