@@ -1,62 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEJA WEB STUDIO | Private Office</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
- min-height:100vh;display:flex;align-items:center;justify-content:center;
- padding:20px;background:#080808;color:#f5f0e5;
- font-family:Arial,sans-serif;
-}
-.login-card{
- width:100%;max-width:420px;padding:38px 28px;
- background:linear-gradient(145deg,#171717,#0c0c0c);
- border:1px solid #b99545;border-radius:20px;
- box-shadow:0 20px 70px #000;
-}
-.logo{text-align:center;color:#d7b45a;font-size:13px;
- letter-spacing:4px;font-weight:bold}
-h1{text-align:center;margin:22px 0 8px;font-size:25px}
-.subtitle{text-align:center;color:#aaa;font-size:13px;margin-bottom:30px}
-label{display:block;margin:17px 0 8px;color:#d7b45a;font-size:13px}
-input{
- width:100%;padding:14px;border-radius:9px;
- border:1px solid #454545;background:#101010;color:white;
- outline:none;font-size:15px
-}
-input:focus{border-color:#d7b45a}
-button{
- width:100%;padding:15px;margin-top:25px;border:0;
- border-radius:9px;background:linear-gradient(90deg,#b58b35,#f0d486);
- color:#17120a;font-weight:bold;font-size:15px;cursor:pointer
-}
-button:disabled{opacity:.6;cursor:wait}
-#status{text-align:center;margin-top:18px;font-size:13px;color:#e4c779;line-height:1.5}
-.footer{text-align:center;color:#777;font-size:11px;margin-top:30px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEJA WEB STUDIO | Private Office</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;background:#080808;color:#f5f0e5;
+      font-family:Arial,sans-serif;display:flex;align-items:center;
+      justify-content:center;padding:20px
+    }
+    .card{
+      width:100%;max-width:430px;padding:32px 25px;
+      background:#111;border:1px solid #b99745;border-radius:18px;
+      box-shadow:0 0 35px #b9974520
+    }
+    .brand{text-align:center;color:#d5b45b;font-size:13px;
+      letter-spacing:4px;font-weight:bold}
+    h1{text-align:center;font-size:25px;margin:13px 0 8px}
+    .sub{text-align:center;color:#aaa;font-size:13px;margin-bottom:28px}
+    label{display:block;margin:15px 0 7px;color:#d5b45b;font-size:13px}
+    input{
+      width:100%;padding:14px;background:#080808;color:white;
+      border:1px solid #444;border-radius:8px;font-size:15px
+    }
+    input:focus{outline:1px solid #d5b45b}
+    button{
+      width:100%;padding:14px;margin-top:18px;border:0;
+      border-radius:8px;background:linear-gradient(90deg,#a98532,#e5ca78);
+      color:#111;font-weight:bold;font-size:15px;cursor:pointer
+    }
+    .link{display:block;text-align:center;margin-top:18px;
+      color:#d5b45b;font-size:13px;cursor:pointer}
+    .message{text-align:center;font-size:13px;margin-top:17px;
+      line-height:1.6;color:#ddd}
+    .hidden{display:none!important}
+    .gold{color:#d5b45b}
+    .panel{text-align:center;padding:15px 0}
+    .panel p{color:#bbb;line-height:1.7;font-size:14px}
+    .logout{background:#292929;color:#eee;border:1px solid #555}
+  </style>
 </head>
 <body>
-<div class="login-card">
- <div class="logo">TEJA WEB STUDIO</div>
- <h1>PRIVATE OFFICE</h1>
- <p class="subtitle">Owner Access Portal</p>
 
- <form id="loginForm">
-  <label for="email">OWNER EMAIL</label>
-  <input id="email" type="email" placeholder="Enter owner email" required autocomplete="username">
+<div class="card">
+  <div class="brand">TEJA WEB STUDIO</div>
 
-  <label for="password">PASSWORD</label>
-  <input id="password" type="password" placeholder="Enter password" required autocomplete="current-password">
+  <section id="loginView">
+    <h1>Owner Login</h1>
+    <div class="sub">Private Business Office</div>
 
-  <button id="loginBtn" type="submit">SECURE LOGIN</button>
- </form>
+    <label>Email Address</label>
+    <input id="email" type="email" placeholder="Enter owner email">
 
- <p id="status" role="status"></p>
- <div class="footer">PRIVATE & SECURE ACCESS · TEJA WEB STUDIO</div>
+    <label>Password</label>
+    <input id="password" type="password" placeholder="Enter password">
+
+    <button id="loginBtn" onclick="login()">LOGIN TO OFFICE</button>
+    <span class="link" onclick="showView('forgotView')">Forgot Password?</span>
+  </section>
+
+  <section id="forgotView" class="hidden">
+    <h1>Forgot Password</h1>
+    <div class="sub">We will send a password reset link to your email.</div>
+
+    <label>Owner Email</label>
+    <input id="resetEmail" type="email" placeholder="Enter owner email">
+
+    <button onclick="sendReset()">SEND RESET LINK</button>
+    <span class="link" onclick="showView('loginView')">Back to Login</span>
+  </section>
+
+  <section id="newPasswordView" class="hidden">
+    <h1>New Password</h1>
+    <div class="sub">Create a new password for your Owner account.</div>
+
+    <label>New Password</label>
+    <input id="newPassword" type="password" placeholder="Enter new password">
+
+    <label>Confirm Password</label>
+    <input id="confirmPassword" type="password" placeholder="Confirm new password">
+
+    <button onclick="updatePassword()">SAVE NEW PASSWORD</button>
+  </section>
+
+  <section id="dashboardView" class="hidden">
+    <div class="panel">
+      <div class="gold">PRIVATE OFFICE ACCESS</div>
+      <h1>Welcome, Owner</h1>
+      <p>Your Owner login has been verified.</p>
+      <p>TEJA WEB STUDIO Dashboard setup is the next step.</p>
+      <button class="logout" onclick="logout()">LOG OUT</button>
+    </div>
+  </section>
+
+  <div id="message" class="message" aria-live="polite"></div>
 </div>
 
 <script>
@@ -65,45 +105,165 @@ const SUPABASE_KEY = "sb_publishable_kX4EVyUKzhfEmfk8gW6OEA_2pOGtOsH";
 const OWNER_UID = "f4bf2cc3-80a1-483e-9ac2-9c867aef1ef3";
 
 const client = window.supabase.createClient(
- SUPABASE_URL,
- SUPABASE_KEY
+  SUPABASE_URL,
+  SUPABASE_KEY,
+  {
+    auth: {
+      flowType: "pkce",
+      detectSessionInUrl: true,
+      persistSession: true,
+      autoRefreshToken: true
+    }
+  }
 );
 
-const form = document.getElementById("loginForm");
-const statusText = document.getElementById("status");
-const loginBtn = document.getElementById("loginBtn");
+const officeURL = window.location.origin +
+  window.location.pathname;
 
-form.addEventListener("submit", async (event) => {
- event.preventDefault();
+function showView(id) {
+  ["loginView","forgotView","newPasswordView","dashboardView"]
+    .forEach(view => document.getElementById(view).classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  showMessage("");
+}
 
- const email = document.getElementById("email").value.trim();
- const password = document.getElementById("password").value;
+function showMessage(text, error=false) {
+  const el = document.getElementById("message");
+  el.textContent = text;
+  el.style.color = error ? "#ff8585" : "#d5b45b";
+}
 
- loginBtn.disabled = true;
- loginBtn.textContent = "VERIFYING...";
- statusText.textContent = "";
+function ownerAllowed(user) {
+  return user && user.id === OWNER_UID;
+}
 
- try {
-  const {data, error} = await client.auth.signInWithPassword({
-   email,
-   password
-  });
-
-  if (error) throw error;
-
-  if (data.user.id !== OWNER_UID) {
-   await client.auth.signOut();
-   throw new Error("This account is not authorized for Owner access.");
+async function login() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  if (!email || !password) {
+    showMessage("Please enter email and password.", true);
+    return;
   }
 
-  statusText.textContent = "Owner login verified. Dashboard setup is next!";
- } catch (error) {
-  statusText.textContent = error.message || "Login failed. Please try again.";
- } finally {
-  loginBtn.disabled = false;
-  loginBtn.textContent = "SECURE LOGIN";
- }
+  showMessage("Checking Owner account...");
+  const {data,error} = await client.auth.signInWithPassword({
+    email,password
+  });
+
+  if (error) {
+    showMessage(error.message, true);
+    return;
+  }
+
+  if (!ownerAllowed(data.user)) {
+    await client.auth.signOut();
+    showMessage("This account is not authorized as the Owner.", true);
+    return;
+  }
+
+  showView("dashboardView");
+  showMessage("Owner login verified.");
+}
+
+async function sendReset() {
+  const email = document.getElementById("resetEmail").value.trim();
+  if (!email) {
+    showMessage("Please enter your Owner email.", true);
+    return;
+  }
+
+  showMessage("Sending password recovery email...");
+  const {error} = await client.auth.resetPasswordForEmail(email, {
+    redirectTo: officeURL
+  });
+
+  if (error) {
+    showMessage(error.message, true);
+    return;
+  }
+
+  showMessage("Recovery email requested. Check your Inbox and Spam folder.");
+}
+
+async function updatePassword() {
+  const password = document.getElementById("newPassword").value;
+  const confirm = document.getElementById("confirmPassword").value;
+
+  if (password.length < 8) {
+    showMessage("Password must be at least 8 characters.", true);
+    return;
+  }
+  if (password !== confirm) {
+    showMessage("Passwords do not match.", true);
+    return;
+  }
+
+  const {data:sessionData,error:sessionError} =
+    await client.auth.getSession();
+
+  if (sessionError || !sessionData.session) {
+    showMessage("Recovery session not found. Request a new reset email.", true);
+    return;
+  }
+
+  if (!ownerAllowed(sessionData.session.user)) {
+    await client.auth.signOut();
+    showMessage("This account is not authorized.", true);
+    return;
+  }
+
+  showMessage("Updating password...");
+  const {error} = await client.auth.updateUser({password});
+
+  if (error) {
+    showMessage(error.message, true);
+    return;
+  }
+
+  document.getElementById("password").value = "";
+  showView("loginView");
+  showMessage("Password updated successfully. Please log in with your new password.");
+}
+
+async function logout() {
+  await client.auth.signOut();
+  showView("loginView");
+  showMessage("You have logged out.");
+}
+
+client.auth.onAuthStateChange(async (event, session) => {
+  if (event === "PASSWORD_RECOVERY") {
+    if (session && ownerAllowed(session.user)) {
+      showView("newPasswordView");
+      showMessage("Recovery verified. Set your new password.");
+    } else {
+      await client.auth.signOut();
+      showView("loginView");
+      showMessage("Unauthorized recovery account.", true);
+    }
+  }
 });
+
+async function initialize() {
+  const {data,error} = await client.auth.getSession();
+  if (error) {
+    showMessage(error.message, true);
+    return;
+  }
+
+  const session = data.session;
+  if (session && ownerAllowed(session.user)) {
+    showView("dashboardView");
+  } else if (session) {
+    await client.auth.signOut();
+    showView("loginView");
+    showMessage("Unauthorized account.", true);
+  } else {
+    showView("loginView");
+  }
+}
+
+initialize();
 </script>
 </body>
 </html>
