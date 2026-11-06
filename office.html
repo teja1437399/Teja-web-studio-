@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEJA WEB STUDIO | Private Office</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ min-height:100vh;display:flex;align-items:center;justify-content:center;
+ padding:20px;background:#080808;color:#f5f0e5;
+ font-family:Arial,sans-serif;
+}
+.login-card{
+ width:100%;max-width:420px;padding:38px 28px;
+ background:linear-gradient(145deg,#171717,#0c0c0c);
+ border:1px solid #b99545;border-radius:20px;
+ box-shadow:0 20px 70px #000;
+}
+.logo{text-align:center;color:#d7b45a;font-size:13px;
+ letter-spacing:4px;font-weight:bold}
+h1{text-align:center;margin:22px 0 8px;font-size:25px}
+.subtitle{text-align:center;color:#aaa;font-size:13px;margin-bottom:30px}
+label{display:block;margin:17px 0 8px;color:#d7b45a;font-size:13px}
+input{
+ width:100%;padding:14px;border-radius:9px;
+ border:1px solid #454545;background:#101010;color:white;
+ outline:none;font-size:15px
+}
+input:focus{border-color:#d7b45a}
+button{
+ width:100%;padding:15px;margin-top:25px;border:0;
+ border-radius:9px;background:linear-gradient(90deg,#b58b35,#f0d486);
+ color:#17120a;font-weight:bold;font-size:15px;cursor:pointer
+}
+button:disabled{opacity:.6;cursor:wait}
+#status{text-align:center;margin-top:18px;font-size:13px;color:#e4c779;line-height:1.5}
+.footer{text-align:center;color:#777;font-size:11px;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="login-card">
+ <div class="logo">TEJA WEB STUDIO</div>
+ <h1>PRIVATE OFFICE</h1>
+ <p class="subtitle">Owner Access Portal</p>
+
+ <form id="loginForm">
+  <label for="email">OWNER EMAIL</label>
+  <input id="email" type="email" placeholder="Enter owner email" required autocomplete="username">
+
+  <label for="password">PASSWORD</label>
+  <input id="password" type="password" placeholder="Enter password" required autocomplete="current-password">
+
+  <button id="loginBtn" type="submit">SECURE LOGIN</button>
+ </form>
+
+ <p id="status" role="status"></p>
+ <div class="footer">PRIVATE & SECURE ACCESS · TEJA WEB STUDIO</div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://beuoolukuulujogvvxac.supabase.co";
+const SUPABASE_KEY = "sb_publishable_kX4EVyUKzhfEmfk8gW6OEA_2pOGtOsH";
+const OWNER_UID = "f4bf2cc3-80a1-483e-9ac2-9c867aef1ef3";
+
+const client = window.supabase.createClient(
+ SUPABASE_URL,
+ SUPABASE_KEY
+);
+
+const form = document.getElementById("loginForm");
+const statusText = document.getElementById("status");
+const loginBtn = document.getElementById("loginBtn");
+
+form.addEventListener("submit", async (event) => {
+ event.preventDefault();
+
+ const email = document.getElementById("email").value.trim();
+ const password = document.getElementById("password").value;
+
+ loginBtn.disabled = true;
+ loginBtn.textContent = "VERIFYING...";
+ statusText.textContent = "";
+
+ try {
+  const {data, error} = await client.auth.signInWithPassword({
+   email,
+   password
+  });
+
+  if (error) throw error;
+
+  if (data.user.id !== OWNER_UID) {
+   await client.auth.signOut();
+   throw new Error("This account is not authorized for Owner access.");
+  }
+
+  statusText.textContent = "Owner login verified. Dashboard setup is next!";
+ } catch (error) {
+  statusText.textContent = error.message || "Login failed. Please try again.";
+ } finally {
+  loginBtn.disabled = false;
+  loginBtn.textContent = "SECURE LOGIN";
+ }
+});
+</script>
+</body>
+</html>
