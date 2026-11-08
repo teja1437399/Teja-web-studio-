@@ -263,17 +263,17 @@ if(error) throw error;
 statusText.textContent="Thank you! Your enquiry has been submitted successfully.";
 statusText.style.color="#dfbd78";
 form.reset();
-
+  
 }catch(error){
 console.error("Enquiry submission error:",error);
-statusText.textContent="Sorry, submission failed. Please try again later.";
+statusText.textContent="Error: " + (error.message || JSON.stringify(error));
 statusText.style.color="#ff9999";
 }finally{
 submitBtn.disabled=false;
 submitBtn.textContent="Submit Enquiry ↗";
 }
 });
-
+  
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
