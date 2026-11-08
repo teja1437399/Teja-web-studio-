@@ -6,162 +6,348 @@
 <title>TEJA WEB STUDIO | Private Office</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
+:root {
+  --gold:#d6ad60;
+  --bg:#090909;
+  --panel:#151515;
+  --muted:#999;
+  --line:#302719;
+}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:#080808;color:#f5f0e5;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px}
-.card{width:100%;max-width:430px;padding:32px 25px;background:#111;border:1px solid #b99745;border-radius:18px;box-shadow:0 0 35px #b9974520}
-.brand{text-align:center;color:#d5b45b;font-size:13px;letter-spacing:4px;font-weight:bold}
-h1{text-align:center;font-size:25px;margin:18px 0 8px}
-.sub{text-align:center;color:#aaa;font-size:13px;margin-bottom:28px}
-label{display:block;margin:15px 0 7px;color:#d5b45b;font-size:13px}
-input{width:100%;padding:14px;background:#080808;color:white;border:1px solid #444;border-radius:8px;font-size:16px}
-button{width:100%;padding:14px;margin-top:18px;border:0;border-radius:8px;background:linear-gradient(90deg,#a98532,#e5ca78);color:#111;font-weight:bold;font-size:15px;cursor:pointer}
-button:disabled{opacity:.5;cursor:not-allowed}
-.hidden{display:none!important}
-.message{text-align:center;font-size:13px;margin-top:17px;line-height:1.6;color:#d5b45b}
-.panel{text-align:center;padding:15px 0}
-.panel p{color:#bbb;line-height:1.7;font-size:14px}
-.logout{background:#292929;color:#eee;border:1px solid #555}
-.note{text-align:center;color:#777;font-size:11px;margin-top:22px}
+body{
+  margin:0;background:var(--bg);color:#f5f0e6;
+  font-family:Arial,sans-serif;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+header{
+  padding:19px 22px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;flex-wrap:wrap;background:#101010;
+}
+.brand{font-size:18px;font-weight:bold;letter-spacing:1.5px}
+.brand span{color:var(--gold)}
+.small{color:var(--muted);font-size:12px;margin-top:5px}
+.gold{color:var(--gold)}
+.btn{
+  border:1px solid var(--gold);background:var(--gold);
+  color:#111;padding:11px 16px;border-radius:7px;font-weight:bold;
+}
+.btn.outline{background:transparent;color:var(--gold)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.layout{display:flex;min-height:calc(100vh - 75px)}
+.sidebar{
+  width:230px;padding:20px 13px;background:#101010;
+  border-right:1px solid var(--line);flex-shrink:0;
+}
+.nav{
+  display:block;width:100%;text-align:left;padding:13px;
+  margin:4px 0;background:transparent;border:0;
+  color:#bbb;border-radius:7px;
+}
+.nav.active,.nav:hover{background:#292114;color:var(--gold)}
+main{padding:25px;width:100%;min-width:0}
+h1{font-size:25px;margin:0 0 8px}
+h2{font-size:18px;color:var(--gold)}
+.muted{color:var(--muted)}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));
+  gap:14px;margin:22px 0;
+}
+.card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:11px;padding:19px;
+}
+.card .number{font-size:27px;color:var(--gold);margin-top:13px}
+.section{display:none}
+.section.active{display:block}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:650px}
+th,td{padding:13px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+th{color:var(--gold)}
+.login{
+  min-height:100vh;display:flex;align-items:center;
+  justify-content:center;padding:20px;
+  background:radial-gradient(ellipse at top,#292013,#090909 65%);
+}
+.login-box{
+  width:100%;max-width:390px;padding:30px;
+  background:#151515;border:1px solid var(--line);
+  border-radius:15px;text-align:center;
+}
+input{
+  width:100%;padding:13px;margin:9px 0;
+  background:#090909;border:1px solid #44351e;
+  border-radius:7px;color:white;outline:none;
+}
+input:focus{border-color:var(--gold)}
+#message{font-size:13px;color:var(--gold);margin-top:12px}
+.empty{padding:25px;text-align:center;color:var(--muted)}
+@media(max-width:700px){
+  .layout{display:block}
+  .sidebar{width:100%;display:flex;overflow-x:auto;padding:8px}
+  .nav{white-space:nowrap;width:auto}
+  main{padding:17px}
+}
 </style>
 </head>
 <body>
-<div class="card">
-<div class="brand">TEJA WEB STUDIO</div>
 
-<section id="loginView">
-<h1>Owner Login</h1>
-<div class="sub">Secure Email OTP Verification</div>
-
-<label>Owner Email</label>
-<input id="email" type="email" value="tej633519@gmail.com" readonly>
-
-<button id="sendBtn" onclick="sendOTP()">SEND LOGIN OTP</button>
-
-<div id="otpArea" class="hidden">
-<label>6-Digit Email OTP</label>
-<input id="otp" type="text" inputmode="numeric" maxlength="6" placeholder="Enter OTP">
-<button id="verifyBtn" onclick="verifyOTP()">VERIFY & LOGIN</button>
+<div id="loginScreen" class="login">
+  <div class="login-box">
+    <div class="brand">TEJA <span>WEB STUDIO</span></div>
+    <p class="small">PRIVATE OWNER OFFICE</p>
+    <h2>Welcome Back</h2>
+    <p class="muted">Owner access only</p>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Owner Email"
+        autocomplete="username" required>
+      <input type="password" id="password" placeholder="Password"
+        autocomplete="current-password" required>
+      <button class="btn" style="width:100%" id="loginButton">
+        LOGIN TO OFFICE
+      </button>
+    </form>
+    <div id="message"></div>
+  </div>
 </div>
-</section>
 
-<section id="dashboardView" class="hidden">
-<div class="panel">
-<div style="color:#d5b45b;letter-spacing:2px">PRIVATE OFFICE ACCESS</div>
-<h1>Welcome, Owner</h1>
-<p>Your Owner identity has been verified successfully.</p>
-<p>TEJA WEB STUDIO Private Office</p>
-<p>Dashboard setup is the next step.</p>
-<button class="logout" onclick="logout()">LOG OUT</button>
+<div id="office" hidden>
+<header>
+  <div>
+    <div class="brand">TEJA <span>WEB STUDIO</span></div>
+    <div class="small">PRIVATE BUSINESS OFFICE</div>
+  </div>
+  <button class="btn outline" id="logout">Logout</button>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <button class="nav active" data-page="overview">◈ Overview</button>
+    <button class="nav" data-page="enquiries">✉ Enquiries</button>
+    <button class="nav" data-page="clients">♙ Clients</button>
+    <button class="nav" data-page="projects">▣ Projects</button>
+    <button class="nav" data-page="finance">₹ Finance</button>
+    <button class="nav" data-page="tasks">✓ Tasks</button>
+    <button class="nav" data-page="reports">▤ Reports</button>
+  </aside>
+
+  <main>
+    <section id="overview" class="section active">
+      <h1>Business Overview</h1>
+      <p class="muted">Your private business workspace.</p>
+      <div class="grid">
+        <div class="card">Total Enquiries<div class="number" id="totalEnquiries">0</div></div>
+        <div class="card">New Enquiries<div class="number" id="newEnquiries">0</div></div>
+        <div class="card">Projects<div class="number">—</div></div>
+        <div class="card">Clients<div class="number">—</div></div>
+      </div>
+      <div class="card">
+        <h2>Welcome, Owner</h2>
+        <p class="muted">Your business workspace is ready.</p>
+        <p class="small">Customer enquiries are loaded from your Supabase database.</p>
+      </div>
+    </section>
+
+    <section id="enquiries" class="section">
+      <h1>Customer Enquiries</h1>
+      <p class="muted">Messages received through the public website.</p>
+      <div class="card table-wrap">
+        <table>
+          <thead><tr>
+            <th>Date</th><th>Name</th><th>Contact</th>
+            <th>Business</th><th>Service</th><th>Message</th>
+          </tr></thead>
+          <tbody id="enquiryRows">
+            <tr><td colspan="6">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn outline" id="refresh">Refresh Enquiries</button>
+      <div id="enquiryMessage" class="small"></div>
+    </section>
+
+    <section id="clients" class="section">
+      <h1>Clients</h1>
+      <div class="card"><p class="muted">Client register will be connected in the next development step.</p></div>
+    </section>
+
+    <section id="projects" class="section">
+      <h1>Projects</h1>
+      <div class="card"><p class="muted">Project tracking will be added next.</p></div>
+    </section>
+
+    <section id="finance" class="section">
+      <h1>Earnings & Expenses</h1>
+      <div class="card"><p class="muted">Finance records will be added after setting up secure database tables.</p></div>
+    </section>
+
+    <section id="tasks" class="section">
+      <h1>Tasks & Follow-ups</h1>
+      <div class="card"><p class="muted">Task management will be added next.</p></div>
+    </section>
+
+    <section id="reports" class="section">
+      <h1>Business Reports</h1>
+      <div class="card"><p class="muted">Reports will be connected after the business records are ready.</p></div>
+    </section>
+  </main>
 </div>
-</section>
-
-<div id="message" class="message" aria-live="polite"></div>
-<div class="note">AUTHORIZED OWNER ACCESS ONLY</div>
 </div>
 
 <script>
-const SUPABASE_URL="https://beuoolukuulujogvvxac.supabase.co";
-const SUPABASE_KEY="sb_publishable_kX4EVyUKzhfEmfk8gW6OEA_2pOGtOsH";
-const OWNER_UID="f4bf2cc3-80a1-483e-9ac2-9c867aef1ef3";
-const OWNER_EMAIL="tej633519@gmail.com";
+const SUPABASE_URL = "https://beuoolukuulujogvvxac.supabase.co";
+const SUPABASE_KEY = "sb_publishable_kX4EVyUKzhfEmfk8gW6OEA_2pOGtOsH";
+const OWNER_UID = "f4bf2cc3-80a1-483e-9ac2-9c867aef1ef3";
+const OWNER_EMAIL = "tej633519@gmail.com";
 
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-
-function message(text,error=false){
- const el=document.getElementById("message");
- el.textContent=text;
- el.style.color=error?"#ff8585":"#d5b45b";
-}
-
-function showDashboard(){
- document.getElementById("loginView").classList.add("hidden");
- document.getElementById("dashboardView").classList.remove("hidden");
- message("Owner login verified.");
-}
-
-async function sendOTP(){
- const btn=document.getElementById("sendBtn");
- btn.disabled=true;
- message("Sending OTP to Owner email...");
-
- const {error}=await db.auth.signInWithOtp({
-  email:OWNER_EMAIL,
-  options:{shouldCreateUser:false}
- });
-
- btn.disabled=false;
-
- if(error){
-  message(error.message,true);
-  return;
- }
-
- document.getElementById("otpArea").classList.remove("hidden");
- message("OTP sent. Check your Gmail Inbox and Spam folder.");
-}
-
-async function verifyOTP(){
- const otp=document.getElementById("otp").value.trim();
-
- if(!/^\d{6}$/.test(otp)){
-  message("Please enter the valid 6-digit OTP.",true);
-  return;
- }
-
- const btn=document.getElementById("verifyBtn");
- btn.disabled=true;
- message("Verifying OTP...");
-
- const {data,error}=await db.auth.verifyOtp({
-  email:OWNER_EMAIL,
-  token:otp,
-  type:"email"
- });
-
- btn.disabled=false;
-
- if(error){
-  message(error.message,true);
-  return;
- }
-
- if(!data.user||data.user.id!==OWNER_UID){
-  await db.auth.signOut();
-  message("Unauthorized account. Access denied.",true);
-  return;
- }
-
- showDashboard();
-}
-
-async function logout(){
- await db.auth.signOut();
- document.getElementById("dashboardView").classList.add("hidden");
- document.getElementById("loginView").classList.remove("hidden");
- document.getElementById("otpArea").classList.add("hidden");
- document.getElementById("otp").value="";
- message("Logged out successfully.");
-}
-
-async function initialize(){
- const {data,error}=await db.auth.getSession();
-
- if(error){
-  message(error.message,true);
-  return;
- }
-
- if(data.session){
-  if(data.session.user.id===OWNER_UID){
-   showDashboard();
-  }else{
-   await db.auth.signOut();
-   message("Unauthorized account.",true);
+const db = window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{
+  auth:{
+    persistSession:true,
+    autoRefreshToken:true,
+    detectSessionInUrl:true
   }
- }
+});
+
+const $ = id => document.getElementById(id);
+const loginScreen = $("loginScreen");
+const office = $("office");
+
+function showMessage(text){
+  $("message").textContent = text;
 }
 
-initialize();
+function showLogin(){
+  office.hidden = true;
+  loginScreen.style.display = "flex";
+}
+
+async function showOffice(){
+  loginScreen.style.display = "none";
+  office.hidden = false;
+  await loadEnquiries();
+}
+
+async function verifyOwner(session){
+  if(!session || !session.user) return false;
+  if(session.user.id !== OWNER_UID ||
+     session.user.email?.toLowerCase() !== OWNER_EMAIL.toLowerCase()){
+    await db.auth.signOut();
+    return false;
+  }
+  return true;
+}
+
+async function checkSession(){
+  const {data,error} = await db.auth.getSession();
+  if(error || !data.session || !(await verifyOwner(data.session))){
+    showLogin();
+    return;
+  }
+  await showOffice();
+}
+
+$("email").value = OWNER_EMAIL;
+
+$("loginForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const btn = $("loginButton");
+  btn.disabled = true;
+  showMessage("Checking Owner account...");
+
+  const email = $("email").value.trim();
+  const password = $("password").value;
+
+  const {data,error} = await db.auth.signInWithPassword({email,password});
+
+  if(error){
+    showMessage("Login failed: " + error.message);
+    btn.disabled = false;
+    return;
+  }
+
+  if(!(await verifyOwner(data.session))){
+    showMessage("This account is not authorized.");
+    btn.disabled = false;
+    return;
+  }
+
+  $("password").value = "";
+  btn.disabled = false;
+  await showOffice();
+});
+
+$("logout").addEventListener("click",async()=>{
+  await db.auth.signOut();
+  showLogin();
+});
+
+document.querySelectorAll(".nav").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+    btn.classList.add("active");
+    $(btn.dataset.page).classList.add("active");
+    if(btn.dataset.page==="enquiries") loadEnquiries();
+  });
+});
+
+function safe(value){
+  return String(value ?? "").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+
+async function loadEnquiries(){
+  $("enquiryRows").innerHTML =
+    '<tr><td colspan="6">Loading enquiries...</td></tr>';
+
+  const {data,error} = await db
+    .from("enquiries")
+    .select("id,created_at,customer_name,contact_number,business_name,service,message")
+    .order("created_at",{ascending:false})
+    .limit(100);
+
+  if(error){
+    $("enquiryRows").innerHTML =
+      '<tr><td colspan="6">Unable to load enquiries.</td></tr>';
+    $("enquiryMessage").textContent = error.message;
+    return;
+  }
+
+  const rows = data || [];
+  $("totalEnquiries").textContent = rows.length;
+  $("newEnquiries").textContent = rows.length;
+
+  if(!rows.length){
+    $("enquiryRows").innerHTML =
+      '<tr><td colspan="6" class="empty">No enquiries received yet.</td></tr>';
+    return;
+  }
+
+  $("enquiryRows").innerHTML = rows.map(r=>`
+    <tr>
+      <td>${safe(r.created_at ? new Date(r.created_at).toLocaleDateString() : "")}</td>
+      <td>${safe(r.customer_name)}</td>
+      <td>${safe(r.contact_number)}</td>
+      <td>${safe(r.business_name)}</td>
+      <td>${safe(r.service)}</td>
+      <td>${safe(r.message)}</td>
+    </tr>
+  `).join("");
+
+  $("enquiryMessage").textContent = rows.length + " enquiries loaded.";
+}
+
+$("refresh").addEventListener("click",loadEnquiries);
+
+db.auth.onAuthStateChange(async(event,session)=>{
+  if(event==="SIGNED_OUT"){
+    showLogin();
+  }
+});
+
+checkSession();
 </script>
 </body>
 </html>
