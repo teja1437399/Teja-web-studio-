@@ -1,308 +1,911 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#081326">
-<meta name="description" content="TEJA WEB STUDIO creates professional websites for growing businesses.">
-<title>TEJA WEB STUDIO | Digital Experiences</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="Teja Web Studio creates professional, modern and affordable websites for businesses, shops, restaurants and brands.">
+  <title>Teja Web Studio | Creative Website Design</title>
 
-<style>
-:root{--bg:#081326;--bg2:#0d1b32;--card:#12233e;--gold:#dfbd78;--gold2:#f3dca9;--white:#f7f8fc;--muted:#aab7ca;--line:rgba(255,255,255,.1)}
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);line-height:1.7}
-a{text-decoration:none;color:inherit}
-button,input,select,textarea{font:inherit}
-.container{width:min(1160px,90%);margin:auto}
-.gold{color:var(--gold)}
-.section{padding:90px 0}
-.heading{text-align:center;margin-bottom:45px}
-.heading small,.eyebrow{color:var(--gold);font-size:12px;letter-spacing:3px;font-weight:800;text-transform:uppercase}
-.heading h2{font:700 clamp(30px,5vw,44px) 'Playfair Display',serif;margin:10px 0}
-.heading p{color:var(--muted);max-width:650px;margin:auto}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 23px;border-radius:7px;font-weight:800;border:0;cursor:pointer;transition:.3s}
-.btn-gold{background:var(--gold);color:#101827}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-3px)}
-.btn-outline{border:1px solid var(--gold);color:var(--gold)}
-.btn-outline:hover{background:var(--gold);color:#101827}
-header{position:sticky;top:0;z-index:100;background:rgba(8,19,38,.96);backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.logo{font:800 22px 'Playfair Display',serif;letter-spacing:1px}
-.logo span{color:var(--gold)}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{font-size:13px;color:var(--muted)}
-.nav-links a:hover{color:var(--gold)}
-.menu-btn{display:none;background:none;border:0;color:white;font-size:28px}
-.hero{min-height:630px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 35%,rgba(223,189,120,.15),transparent 43%),linear-gradient(135deg,#081326,#132441)}
-.hero-content{max-width:760px;padding:90px 0;position:relative;z-index:2}
-.hero h1{font:800 clamp(43px,7vw,76px)/1.12 'Playfair Display',serif;margin:22px 0}
-.hero h1 span{color:var(--gold)}
-.hero p{color:var(--muted);font-size:17px;max-width:620px;margin-bottom:28px}
-.hero-actions{display:flex;gap:13px;flex-wrap:wrap}
-.hero-note{margin-top:38px;color:#8c9ab0;font-size:12px;letter-spacing:2px}
-.orbit{position:absolute;width:380px;height:380px;border:1px solid rgba(223,189,120,.2);border-radius:50%;right:-90px;top:130px}
-.orbit:before,.orbit:after{content:"";position:absolute;inset:40px;border:1px solid rgba(223,189,120,.15);border-radius:50%}
-.orbit:after{inset:85px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:-30px;position:relative;z-index:3}
-.stat{background:var(--card);border:1px solid var(--line);padding:22px;text-align:center;border-radius:12px}
-.stat strong{font:700 24px 'Playfair Display',serif;color:var(--gold);display:block}
-.stat span{color:var(--muted);font-size:13px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
-.about-panel{padding:35px;background:linear-gradient(145deg,#172b49,#0d1b32);border:1px solid var(--line);border-radius:15px}
-.symbol{font-size:48px;color:var(--gold)}
-.about-panel h3{font:700 27px 'Playfair Display',serif;margin:12px 0}
-.about-panel p,.about-text p{color:var(--muted);margin-bottom:15px}
-.about-text h2{font:700 39px 'Playfair Display',serif;margin:12px 0 20px}
-.check-list{list-style:none;margin-top:20px}
-.check-list li{margin:10px 0;color:#dce4ef}
-.check-list li:before{content:"✦";color:var(--gold);margin-right:10px}
-.services,.process,.contact{background:var(--bg2)}
-.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.service-card{padding:27px;background:var(--card);border:1px solid var(--line);border-radius:13px;transition:.3s}
-.service-card:hover,.project-card:hover{transform:translateY(-6px);border-color:var(--gold)}
-.service-icon{font-size:32px;color:var(--gold)}
-.service-card h3{font:700 21px 'Playfair Display',serif;margin:13px 0 8px}
-.service-card p{color:var(--muted);font-size:14px}
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:23px}
-.project-card{overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:13px;transition:.3s}
-.project-visual{height:205px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-.project-visual span{font-size:45px;display:block}
-.project-visual h3{font:700 26px 'Playfair Display',serif}
-.grocery{background:linear-gradient(135deg,#123d2d,#1b7950)}
-.restaurant{background:linear-gradient(135deg,#321a23,#9b3e43)}
-.bakery{background:linear-gradient(135deg,#56301c,#b77b39)}
-.store{background:linear-gradient(135deg,#173e32,#779d4b)}
-.project-info{padding:23px}
-.tag{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:800}
-.project-info h3{font:700 22px 'Playfair Display',serif;margin:8px 0}
-.project-info p{color:var(--muted);font-size:14px;margin-bottom:15px}
-.project-link{color:var(--gold);font-size:13px;font-weight:800}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.process-card{padding:23px 18px;border:1px solid var(--line);border-radius:11px;background:var(--card)}
-.number{font:700 32px 'Playfair Display',serif;color:var(--gold)}
-.process-card h3{margin:9px 0}
-.process-card p{font-size:13px;color:var(--muted)}
-.faq-list{max-width:800px;margin:auto}
-details{padding:18px 0;border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font-weight:700}
-details p{color:var(--muted);padding-top:12px;font-size:14px}
-.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:25px}
-.contact-info,.enquiry-form{padding:28px;background:var(--card);border:1px solid var(--line);border-radius:14px}
-.contact-info h3,.enquiry-form h3{font:700 25px 'Playfair Display',serif;margin:10px 0}
-.contact-info p{color:var(--muted);margin:13px 0}
-.form-group{margin:15px 0}
-.form-group label{display:block;margin-bottom:7px;font-size:13px;color:#dce4ef}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:7px;background:#0b1930;color:white;outline:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
-.form-group textarea{min-height:110px;resize:vertical}
-.form-group option{background:#0b1930}
-.form-note{font-size:12px;color:var(--muted);margin-top:12px}
-#formStatus{margin-top:14px;font-size:14px;color:var(--gold)}
-footer{padding:27px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.footer-row strong{color:var(--gold)}
-.reveal{opacity:0;transform:translateY(20px);transition:.7s}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:800px){
-.menu-btn{display:block}
-.nav-links{display:none;position:absolute;top:76px;left:0;width:100%;padding:20px 5%;background:#0d1b32;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
-.nav-links.open{display:flex}
-.about-grid,.contact-grid{grid-template-columns:1fr}
-.service-grid{grid-template-columns:repeat(2,1fr)}
-.process-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
-.hero{min-height:570px}
-.hero-content{padding:70px 0}
-.stats{grid-template-columns:1fr;margin-top:0}
-.service-grid,.projects-grid{grid-template-columns:1fr}
-.process-grid{grid-template-columns:1fr 1fr}
-.section{padding:68px 0}
-}
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #071426;
+      --bg2: #0b1d33;
+      --card: #10243b;
+      --gold: #d9ad62;
+      --gold-light: #f0d49b;
+      --white: #f7f8fa;
+      --muted: #aab7c8;
+      --border: rgba(217,173,98,.2);
+      --green: #25d366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .top-line {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,20,38,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -.8px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: var(--muted);
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-contact {
+      background: var(--gold);
+      color: #101827;
+      padding: 10px 17px;
+      border-radius: 30px;
+      font-weight: 800;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 25%, rgba(217,173,98,.13), transparent 28%),
+        radial-gradient(circle at 10% 90%, rgba(31,93,145,.2), transparent 30%);
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 100px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold-light);
+      border: 1px solid var(--border);
+      background: rgba(217,173,98,.08);
+      border-radius: 30px;
+      padding: 7px 16px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 7vw, 76px);
+      max-width: 800px;
+      margin-bottom: 25px;
+    }
+
+    h1 span, .gold {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 23px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #101827;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+
+    .section-heading small {
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .section-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 46px);
+      margin: 12px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-panel {
+      min-height: 330px;
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 70% 25%, rgba(217,173,98,.18), transparent 35%),
+        var(--bg2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-panel .big-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 85px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .about-panel h3 {
+      font-size: 25px;
+      margin-top: 15px;
+    }
+
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+      margin-top: 25px;
+    }
+
+    .feature {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 13px;
+    }
+
+    .feature span {
+      color: var(--gold);
+      margin-right: 7px;
+    }
+
+    .services {
+      background: var(--bg2);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 30px 25px;
+      border-radius: 15px;
+      transition: .3s;
+    }
+
+    .service-card:hover, .project-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      background: rgba(217,173,98,.12);
+      border-radius: 12px;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-size: 19px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .project-visual {
+      height: 180px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(217,173,98,.23), transparent 35%),
+        linear-gradient(135deg, #102b49, #091729);
+      font-size: 55px;
+    }
+
+    .project-info {
+      padding: 25px;
+    }
+
+    .project-info small {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-info h3 {
+      margin: 9px 0;
+      font-size: 21px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .project-link {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .process {
+      background: var(--bg2);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .process-card {
+      border: 1px solid var(--border);
+      padding: 25px 20px;
+      border-radius: 13px;
+      background: var(--card);
+    }
+
+    .process-number {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 36px;
+    }
+
+    .process-card h3 {
+      font-size: 17px;
+      margin: 10px 0;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    details p {
+      color: var(--muted);
+      font-size: 14px;
+      padding-top: 13px;
+    }
+
+    .contact {
+      background:
+        radial-gradient(circle at 50% 100%, rgba(217,173,98,.13), transparent 45%),
+        var(--bg2);
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .contact-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5vw, 48px);
+      margin: 15px 0;
+    }
+
+    .contact-content p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-number {
+      color: var(--gold-light);
+      margin-top: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      font-size: 29px;
+      z-index: 200;
+      box-shadow: 0 5px 25px rgba(37,211,102,.35);
+      transition: .3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @media(max-width: 850px) {
+      nav {
+        gap: 13px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 650px) {
+      .navbar {
+        min-height: 68px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: #09182b;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 17px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      .nav-contact {
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 570px;
+      }
+
+      .hero-content {
+        padding: 75px 0;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .about-grid, .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-panel {
+        min-height: 260px;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width: 380px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="top-line"></div>
 
-<header>
-<nav class="container">
-<a class="logo" href="#home">TEJA <span>WEB STUDIO</span></a>
-<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
-<div class="nav-links" id="navLinks">
-<a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#contact">Contact</a>
-</div>
-</nav>
-</header>
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">TEJA <span>WEB STUDIO.</span></a>
 
-<main>
-<section class="hero" id="home"><div class="container"><div class="hero-content reveal">
-<div class="eyebrow">Creative Digital Studio</div>
-<h1>Building Digital<br><span>Experiences</span><br>That Matter.</h1>
-<p>We create modern, responsive and professional websites that help small businesses present their products and services online.</p>
-<div class="hero-actions"><a class="btn btn-gold" href="#projects">Explore Projects ↗</a><a class="btn btn-outline" href="#contact">Let's Talk</a></div>
-<div class="hero-note">WEB DESIGN · BUSINESS SHOWCASE · DIGITAL SOLUTIONS</div>
-</div></div><div class="orbit"></div></section>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
 
-<div class="container stats reveal">
-<div class="stat"><strong>Modern</strong><span>Clean Website Design</span></div>
-<div class="stat"><strong>Responsive</strong><span>Mobile-Friendly Layouts</span></div>
-<div class="stat"><strong>Creative</strong><span>Business-Focused Ideas</span></div>
-</div>
+      <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav-contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="section" id="about"><div class="container about-grid">
-<div class="about-panel reveal"><div class="symbol">✦</div><h3>Ideas into Digital Experiences</h3><p>Thoughtful design, useful features and a simple experience for every visitor.</p><div class="gold">TEJA WEB STUDIO</div></div>
-<div class="about-text reveal"><div class="eyebrow">About The Studio</div><h2>Digital Presence for Growing Businesses.</h2><p>TEJA WEB STUDIO focuses on creating attractive and easy-to-use websites for shops, restaurants, bakeries and small businesses.</p><p>Our aim is to help businesses showcase their services, products and contact information online.</p><ul class="check-list"><li>Clean and professional design</li><li>Mobile-friendly website layouts</li><li>Business information and product showcases</li><li>Simple customer contact options</li></ul></div>
-</div></section>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Creative Digital Studio</span>
 
-<section class="section services" id="services"><div class="container">
-<div class="heading reveal"><small>What We Do</small><h2>Our Services</h2><p>Practical digital solutions designed to give businesses a professional online presence.</p></div>
-<div class="service-grid">
-<article class="service-card reveal"><div class="service-icon">▣</div><h3>Business Websites</h3><p>Professional websites to introduce shops, services and businesses to customers.</p></article>
-<article class="service-card reveal"><div class="service-icon">🛍</div><h3>Product Showcases</h3><p>Organised product galleries and catalogues to display products clearly.</p></article>
-<article class="service-card reveal"><div class="service-icon">🍽</div><h3>Restaurant Websites</h3><p>Restaurant pages with menus, contact details and useful customer information.</p></article>
-<article class="service-card reveal"><div class="service-icon">📱</div><h3>Mobile-Friendly Design</h3><p>Layouts designed for phones, tablets and computers.</p></article>
-<article class="service-card reveal"><div class="service-icon">🎨</div><h3>Digital Design</h3><p>Creative visual layouts and promotional design concepts for businesses.</p></article>
-<article class="service-card reveal"><div class="service-icon">⚙</div><h3>Website Improvements</h3><p>Design updates, content organisation and improvements to existing websites.</p></article>
-</div></div></section>
+          <h1>Crafting Digital Experiences <span>with Purpose.</span></h1>
 
-<section class="section" id="projects"><div class="container">
-<div class="heading reveal"><small>Selected Work</small><h2>Featured Projects</h2><p>Explore our website concepts and sample business projects.</p></div>
-<div class="projects-grid">
-<article class="project-card reveal"><div class="project-visual grocery"><div><span>🛒</span><h3>TEJA SMART GROCERY</h3><div>Grocery Website Concept</div></div></div><div class="project-info"><div class="tag">Demo Project</div><h3>TEJA SMART GROCERY STORE PRO</h3><p>A grocery website concept with a product catalogue and owner dashboard demonstration.</p><a class="project-link" href="https://teja1437399.github.io/teja-smart-store/" target="_blank" rel="noopener">View Customer Demo ↗</a></div></article>
-<article class="project-card reveal"><div class="project-visual store"><div><span>🥬</span><h3>SRI LAKSHMI GROCERY</h3><div>Grocery Store Concept</div></div></div><div class="project-info"><div class="tag">Website Concept</div><h3>Sri Lakshmi Grocery Store</h3><p>A grocery showcase concept featuring product information and store details.</p><a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">View Website ↗</a></div></article>
-<article class="project-card reveal"><div class="project-visual restaurant"><div><span>🍽️</span><h3>RUCHI RESTAURANT</h3><div>Restaurant Concept</div></div></div><div class="project-info"><div class="tag">Restaurant Website Concept</div><h3>Ruchi Restaurant</h3><p>A restaurant website concept with menu showcase and customer contact information.</p><a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">View Website ↗</a></div></article>
-<article class="project-card reveal"><div class="project-visual bakery"><div><span>🧁</span><h3>GOOD CHOICE</h3><div>Bakery & Sweets</div></div></div><div class="project-info"><div class="tag">Bakery Website Concept</div><h3>Good Choice Bakery & Sweets</h3><p>A bakery and sweets showcase concept designed to introduce products attractively.</p><a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">View Website ↗</a></div></article>
-</div></div></section>
+          <p>
+            We create modern, professional and mobile-friendly websites
+            that help businesses build their online presence and connect
+            with more customers.
+          </p>
 
-<section class="section process" id="process"><div class="container">
-<div class="heading reveal"><small>How We Work</small><h2>Our Simple Process</h2><p>A clear process helps turn a business idea into a website project.</p></div>
-<div class="process-grid">
-<div class="process-card reveal"><div class="number">01</div><h3>Understand</h3><p>Understand the business and its website requirements.</p></div>
-<div class="process-card reveal"><div class="number">02</div><h3>Plan</h3><p>Organise the content, sections and features needed.</p></div>
-<div class="process-card reveal"><div class="number">03</div><h3>Design</h3><p>Create a responsive and professional website layout.</p></div>
-<div class="process-card reveal"><div class="number">04</div><h3>Review</h3><p>Test the website and make agreed improvements.</p></div>
-</div></div></section>
+          <div class="buttons">
+            <a class="btn btn-gold" href="https://wa.me/918185961687?text=Hello%20Teja%20Web%20Studio%2C%20I%20need%20a%20website." target="_blank" rel="noopener">
+              Chat on WhatsApp ↗
+            </a>
 
-<section class="section" id="faq"><div class="container">
-<div class="heading reveal"><small>Questions</small><h2>Frequently Asked Questions</h2></div>
-<div class="faq-list reveal">
-<details><summary>What type of websites do you create?</summary><p>Business showcase websites, product catalogues, restaurant pages and bakery websites.</p></details>
-<details><summary>Will the website work on mobile phones?</summary><p>Yes. Our layouts are designed to adapt to mobile phones, tablets and desktop screens.</p></details>
-<details><summary>Can a business update its products?</summary><p>Some projects can include a separate owner management panel. Features are planned according to project requirements.</p></details>
-<details><summary>How can I discuss a project?</summary><p>Submit the enquiry form below. We can then contact you to discuss your requirements.</p></details>
-</div></div></section>
+            <a class="btn btn-outline" href="#projects">Explore Projects ↓</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="section contact" id="contact"><div class="container">
-<div class="heading reveal"><small>Let's Connect</small><h2>Start Your Website Project</h2><p>Tell us about your business and the website you need.</p></div>
-<div class="contact-grid">
-<div class="contact-info reveal"><div class="eyebrow">TEJA WEB STUDIO</div><h3>Let's Build Something Useful.</h3><p>Have a shop, restaurant, bakery or small business? Send us your requirements through this form.</p><p><strong class="gold">Services</strong><br>Business Websites · Product Showcases · Restaurant Websites</p><p><strong class="gold">Location</strong><br>Andhra Pradesh, India</p></div>
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <div class="big-mark">T.</div>
+          <h3>Ideas into Digital Experiences.</h3>
+          <p style="color:var(--muted);margin-top:10px">
+            Thoughtful design. Useful websites. Real business value.
+          </p>
+        </div>
 
-<form class="enquiry-form reveal" id="enquiryForm">
-<h3>Send an Enquiry</h3>
-<div class="form-group"><label for="customerName">Your Name</label><input id="customerName" type="text" maxlength="60" autocomplete="name" placeholder="Enter your name" required></div>
-<div class="form-group"><label for="phone">WhatsApp / Contact Number</label><input id="phone" type="tel" maxlength="20" autocomplete="tel" placeholder="Enter your contact number" required></div>
-<div class="form-group"><label for="businessName">Business Name</label><input id="businessName" type="text" maxlength="80" placeholder="Enter business name"></div>
-<div class="form-group"><label for="service">Service Required</label><select id="service" required><option value="">Select a service</option><option>Business Website</option><option>Product Showcase</option><option>Restaurant Website</option><option>Bakery Website</option><option>Website Improvement</option><option>Other</option></select></div>
-<div class="form-group"><label for="message">Your Message</label><textarea id="message" maxlength="1000" placeholder="Tell us about your requirements" required></textarea></div>
-<button class="btn btn-gold" id="submitBtn" type="submit">Submit Enquiry ↗</button>
-<p id="formStatus" role="status" aria-live="polite"></p>
-<p class="form-note">Your details will be used only to respond to this enquiry. Please do not submit passwords or sensitive information.</p>
-</form>
-</div></div></section>
-</main>
+        <div class="about-text">
+          <span class="gold">ABOUT TEJA WEB STUDIO</span>
+          <h2>Helping Businesses Grow Online.</h2>
 
-<footer><div class="container footer-row"><div>© <span id="year"></span> <strong>TEJA WEB STUDIO</strong>. All rights reserved.</div><div>Designed with care · Andhra Pradesh, India</div></div></footer>
+          <p>
+            Teja Web Studio focuses on creating attractive and easy-to-use
+            websites for local shops, restaurants, bakeries and small businesses.
+          </p>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-const SUPABASE_URL = "https://beuoolukuulujogvvxac.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_kX4EVyUKzhfEmfk8gW6OEA_2pOGtOsH";
+          <p>
+            Our goal is to make every business look professional online
+            with a clean design, useful information and simple customer contact.
+          </p>
 
-// Separate public enquiry client.
-// This client does not persist or reuse an Admin Login session.
-const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY,
-  {
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-      detectSessionInUrl: false
-    }
-  }
-);
+          <div class="features">
+            <div class="feature"><span>✓</span> Mobile Friendly</div>
+            <div class="feature"><span>✓</span> Modern Design</div>
+            <div class="feature"><span>✓</span> Fast Loading</div>
+            <div class="feature"><span>✓</span> WhatsApp Contact</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-const menuBtn=document.getElementById("menuBtn");
-const navLinks=document.getElementById("navLinks");
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <small>What We Do</small>
+          <h2>Our Services</h2>
+          <p>Simple digital solutions designed to help your business stand out.</p>
+        </div>
 
-menuBtn.addEventListener("click",()=>{
-  navLinks.classList.toggle("open");
-  menuBtn.textContent=navLinks.classList.contains("open")?"×":"☰";
-});
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Business Websites</h3>
+            <p>Professional websites to introduce your shop, business, services and contact details.</p>
+          </div>
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    navLinks.classList.remove("open");
-    menuBtn.textContent="☰";
-  });
-});
+          <div class="service-card">
+            <div class="service-icon">🍽️</div>
+            <h3>Restaurant Websites</h3>
+            <p>Beautiful restaurant pages with menu details, photos, location and WhatsApp contact.</p>
+          </div>
 
-document.getElementById("year").textContent=new Date().getFullYear();
+          <div class="service-card">
+            <div class="service-icon">🛍️</div>
+            <h3>Store Websites</h3>
+            <p>Product showcase websites for grocery stores, retail shops and local businesses.</p>
+          </div>
 
-const form=document.getElementById("enquiryForm");
-const statusText=document.getElementById("formStatus");
-const submitBtn=document.getElementById("submitBtn");
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>Mobile-Friendly Design</h3>
+            <p>Responsive layouts that work smoothly on smartphones, tablets and computers.</p>
+          </div>
 
-form.addEventListener("submit",async function(event){
-  event.preventDefault();
+          <div class="service-card">
+            <div class="service-icon">📍</div>
+            <h3>Business Information</h3>
+            <p>Display your business address, working hours, services and useful customer information.</p>
+          </div>
 
-  submitBtn.disabled=true;
-  submitBtn.textContent="Submitting...";
-  statusText.textContent="";
+          <div class="service-card">
+            <div class="service-icon">💬</div>
+            <h3>WhatsApp Integration</h3>
+            <p>Let customers contact your business directly through WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  try{
-    const enquiry={
-      customer_name:document.getElementById("customerName").value.trim(),
-      contact_number:document.getElementById("phone").value.trim(),
-      business_name:document.getElementById("businessName").value.trim(),
-      service:document.getElementById("service").value,
-      message:document.getElementById("message").value.trim()
-    };
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <small>Our Work</small>
+          <h2>Featured Projects</h2>
+          <p>Explore some of our website design demonstrations.</p>
+        </div>
 
-    const {error}=await db
-      .from("enquiries")
-      .insert([enquiry]);
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-visual">🛒</div>
+            <div class="project-info">
+              <small>Retail Website</small>
+              <h3>Teja Smart Store</h3>
+              <p>A modern store website concept with product showcase and customer-friendly design.</p>
+              <a class="project-link" href="https://teja1437399.github.io/teja-smart-store/" target="_blank" rel="noopener">View Project ↗</a>
+            </div>
+          </article>
 
-    if(error) throw error;
+          <article class="project-card">
+            <div class="project-visual">🥬</div>
+            <div class="project-info">
+              <small>Grocery Website</small>
+              <h3>Sri Lakshmi Grocery Store</h3>
+              <p>A grocery store showcase with product details and customer contact options.</p>
+              <a class="project-link" href="https://teja1437399.github.io/Sri-Lakshmi-Grocery-/" target="_blank" rel="noopener">View Project ↗</a>
+            </div>
+          </article>
 
-    statusText.textContent="Thank you! Your enquiry has been submitted successfully.";
-    statusText.style.color="#dfbd78";
-    form.reset();
+          <article class="project-card">
+            <div class="project-visual">🍴</div>
+            <div class="project-info">
+              <small>Restaurant Website</small>
+              <h3>Ruchi Restaurant</h3>
+              <p>A restaurant website concept with menu information and WhatsApp contact.</p>
+              <a class="project-link" href="https://teja1437399.github.io/ruchi-restaurant/" target="_blank" rel="noopener">View Project ↗</a>
+            </div>
+          </article>
 
-  }catch(error){
-    console.error("Enquiry submission error:",error);
-    statusText.textContent="Error: "+(error.message||JSON.stringify(error));
-    statusText.style.color="#ff9999";
-  }finally{
-    submitBtn.disabled=false;
-    submitBtn.textContent="Submit Enquiry ↗";
-  }
-});
+          <article class="project-card">
+            <div class="project-visual">🧁</div>
+            <div class="project-info">
+              <small>Bakery Website</small>
+              <h3>Good Choice Bakery & Sweets</h3>
+              <p>A bakery showcase design for displaying products and business information.</p>
+              <a class="project-link" href="https://teja1437399.github.io/best-of-bakerys-demo/" target="_blank" rel="noopener">View Project ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:0.12});
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-heading">
+          <small>How We Work</small>
+          <h2>Our Simple Process</h2>
+          <p>From your idea to your business website, one step at a time.</p>
+        </div>
 
-document.querySelectorAll(".reveal").forEach(element=>{
-  observer.observe(element);
-});
-</script>
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-number">01</div>
+            <h3>Understand</h3>
+            <p>We understand your business and the website you need.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">02</div>
+            <h3>Plan & Design</h3>
+            <p>We plan the layout and create a suitable design.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">03</div>
+            <h3>Build</h3>
+            <p>We develop the website and make it mobile-friendly.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-number">04</div>
+            <h3>Launch</h3>
+            <p>After approval, we publish your website online.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <small>FAQ</small>
+          <h2>Frequently Asked Questions</h2>
+          <p>Some useful information before starting your website.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>What type of websites do you create?</summary>
+            <p>We create websites for shops, grocery stores, restaurants, bakeries and other small businesses.</p>
+          </details>
+
+          <details>
+            <summary>Will my website work on mobile phones?</summary>
+            <p>Yes. Our website designs are made to adjust to mobile phones, tablets and desktop screens.</p>
+          </details>
+
+          <details>
+            <summary>Can customers contact my business through WhatsApp?</summary>
+            <p>Yes. WhatsApp contact buttons can be included so customers can start a chat with your business.</p>
+          </details>
+
+          <details>
+            <summary>How can I discuss a website project?</summary>
+            <p>Simply contact Teja Web Studio through WhatsApp and tell us about your business requirements.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-content">
+        <span class="eyebrow">Let's Work Together</span>
+        <h2>Have a Project in Mind?</h2>
+        <p>
+          Let's discuss how a professional website can help your business
+          build a stronger online presence.
+        </p>
+
+        <a class="btn btn-gold" href="https://wa.me/918185961687?text=Hello%20Teja%20Web%20Studio%2C%20I%20am%20interested%20in%20creating%20a%20website." target="_blank" rel="noopener">
+          Contact on WhatsApp ↗
+        </a>
+
+        <div class="contact-number">WhatsApp: +91 81859 61687</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> <strong>Teja Web Studio.</strong> All Rights Reserved.
+    </div>
+  </footer>
+
+  <a class="whatsapp-float"
+     href="https://wa.me/918185961687?text=Hello%20Teja%20Web%20Studio"
+     target="_blank"
+     rel="noopener"
+     aria-label="Chat on WhatsApp">☏</a>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+
+    menuBtn.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll("#navMenu a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navMenu.classList.remove("active");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
