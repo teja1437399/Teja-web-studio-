@@ -256,10 +256,7 @@ service:document.getElementById("service").value,
 message:document.getElementById("message").value.trim()
 };
 
-const {data,error}=await db
-.from("enquiries")
-.insert([enquiry])
-.select("id");
+const {error}=await db.from("enquiries").insert([enquiry]);
 
 if(error) throw error;
 
