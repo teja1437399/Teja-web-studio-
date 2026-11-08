@@ -6,58 +6,29 @@
 <title>TEJA WEB STUDIO | Private Office</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root {
-  --gold:#d6ad60;
-  --bg:#090909;
-  --panel:#151515;
-  --muted:#999;
-  --line:#302719;
-}
+:root{--gold:#d6ad60;--bg:#090909;--panel:#151515;--muted:#999;--line:#302719}
 *{box-sizing:border-box}
-body{
-  margin:0;background:var(--bg);color:#f5f0e6;
-  font-family:Arial,sans-serif;
-}
+body{margin:0;background:var(--bg);color:#f5f0e6;font-family:Arial,sans-serif}
 button,input{font:inherit}
 button{cursor:pointer}
-header{
-  padding:19px 22px;border-bottom:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;
-  gap:12px;flex-wrap:wrap;background:#101010;
-}
+header{padding:19px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:#101010}
 .brand{font-size:18px;font-weight:bold;letter-spacing:1.5px}
 .brand span{color:var(--gold)}
 .small{color:var(--muted);font-size:12px;margin-top:5px}
 .gold{color:var(--gold)}
-.btn{
-  border:1px solid var(--gold);background:var(--gold);
-  color:#111;padding:11px 16px;border-radius:7px;font-weight:bold;
-}
+.btn{border:1px solid var(--gold);background:var(--gold);color:#111;padding:11px 16px;border-radius:7px;font-weight:bold}
 .btn.outline{background:transparent;color:var(--gold)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .layout{display:flex;min-height:calc(100vh - 75px)}
-.sidebar{
-  width:230px;padding:20px 13px;background:#101010;
-  border-right:1px solid var(--line);flex-shrink:0;
-}
-.nav{
-  display:block;width:100%;text-align:left;padding:13px;
-  margin:4px 0;background:transparent;border:0;
-  color:#bbb;border-radius:7px;
-}
+.sidebar{width:230px;padding:20px 13px;background:#101010;border-right:1px solid var(--line);flex-shrink:0}
+.nav{display:block;width:100%;text-align:left;padding:13px;margin:4px 0;background:transparent;border:0;color:#bbb;border-radius:7px}
 .nav.active,.nav:hover{background:#292114;color:var(--gold)}
 main{padding:25px;width:100%;min-width:0}
 h1{font-size:25px;margin:0 0 8px}
 h2{font-size:18px;color:var(--gold)}
 .muted{color:var(--muted)}
-.grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));
-  gap:14px;margin:22px 0;
-}
-.card{
-  background:var(--panel);border:1px solid var(--line);
-  border-radius:11px;padding:19px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:14px;margin:22px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:19px}
 .card .number{font-size:27px;color:var(--gold);margin-top:13px}
 .section{display:none}
 .section.active{display:block}
@@ -65,30 +36,14 @@ h2{font-size:18px;color:var(--gold)}
 table{border-collapse:collapse;width:100%;min-width:650px}
 th,td{padding:13px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
 th{color:var(--gold)}
-.login{
-  min-height:100vh;display:flex;align-items:center;
-  justify-content:center;padding:20px;
-  background:radial-gradient(ellipse at top,#292013,#090909 65%);
-}
-.login-box{
-  width:100%;max-width:390px;padding:30px;
-  background:#151515;border:1px solid var(--line);
-  border-radius:15px;text-align:center;
-}
-input{
-  width:100%;padding:13px;margin:9px 0;
-  background:#090909;border:1px solid #44351e;
-  border-radius:7px;color:white;outline:none;
-}
+.login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at top,#292013,#090909 65%)}
+.login-box{width:100%;max-width:390px;padding:30px;background:#151515;border:1px solid var(--line);border-radius:15px;text-align:center}
+input{width:100%;padding:13px;margin:9px 0;background:#090909;border:1px solid #44351e;border-radius:7px;color:white;outline:none}
 input:focus{border-color:var(--gold)}
-#message{font-size:13px;color:var(--gold);margin-top:12px}
+#message{font-size:13px;color:var(--gold);margin-top:12px;overflow-wrap:anywhere}
+.link-btn{background:none;border:0;color:var(--gold);text-decoration:underline;margin-top:15px;padding:8px}
 .empty{padding:25px;text-align:center;color:var(--muted)}
-@media(max-width:700px){
-  .layout{display:block}
-  .sidebar{width:100%;display:flex;overflow-x:auto;padding:8px}
-  .nav{white-space:nowrap;width:auto}
-  main{padding:17px}
-}
+@media(max-width:700px){.layout{display:block}.sidebar{width:100%;display:flex;overflow-x:auto;padding:8px}.nav{white-space:nowrap;width:auto}main{padding:17px}}
 </style>
 </head>
 <body>
@@ -97,17 +52,28 @@ input:focus{border-color:var(--gold)}
   <div class="login-box">
     <div class="brand">TEJA <span>WEB STUDIO</span></div>
     <p class="small">PRIVATE OWNER OFFICE</p>
-    <h2>Welcome Back</h2>
-    <p class="muted">Owner access only</p>
-    <form id="loginForm">
-      <input type="email" id="email" placeholder="Owner Email"
-        autocomplete="username" required>
-      <input type="password" id="password" placeholder="Password"
-        autocomplete="current-password" required>
-      <button class="btn" style="width:100%" id="loginButton">
-        LOGIN TO OFFICE
-      </button>
-    </form>
+
+    <div id="loginPanel">
+      <h2>Welcome Back</h2>
+      <p class="muted">Owner access only</p>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Owner Email" autocomplete="username" required>
+        <input type="password" id="password" placeholder="Password" autocomplete="current-password" required>
+        <button class="btn" style="width:100%" id="loginButton">LOGIN TO OFFICE</button>
+      </form>
+      <button class="link-btn" id="forgotButton">Forgot Password?</button>
+    </div>
+
+    <div id="resetPanel" hidden>
+      <h2>Set New Password</h2>
+      <p class="muted">Create a new password for your Owner account.</p>
+      <form id="resetForm">
+        <input type="password" id="newPassword" placeholder="New Password (minimum 8 characters)" minlength="8" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm New Password" minlength="8" required>
+        <button class="btn" style="width:100%" id="resetButton">SAVE NEW PASSWORD</button>
+      </form>
+    </div>
+
     <div id="message"></div>
   </div>
 </div>
@@ -154,13 +120,8 @@ input:focus{border-color:var(--gold)}
       <p class="muted">Messages received through the public website.</p>
       <div class="card table-wrap">
         <table>
-          <thead><tr>
-            <th>Date</th><th>Name</th><th>Contact</th>
-            <th>Business</th><th>Service</th><th>Message</th>
-          </tr></thead>
-          <tbody id="enquiryRows">
-            <tr><td colspan="6">Loading...</td></tr>
-          </tbody>
+          <thead><tr><th>Date</th><th>Name</th><th>Contact</th><th>Business</th><th>Service</th><th>Message</th></tr></thead>
+          <tbody id="enquiryRows"><tr><td colspan="6">Loading...</td></tr></tbody>
         </table>
       </div>
       <button class="btn outline" id="refresh">Refresh Enquiries</button>
@@ -171,22 +132,18 @@ input:focus{border-color:var(--gold)}
       <h1>Clients</h1>
       <div class="card"><p class="muted">Client register will be connected in the next development step.</p></div>
     </section>
-
     <section id="projects" class="section">
       <h1>Projects</h1>
       <div class="card"><p class="muted">Project tracking will be added next.</p></div>
     </section>
-
     <section id="finance" class="section">
       <h1>Earnings & Expenses</h1>
       <div class="card"><p class="muted">Finance records will be added after setting up secure database tables.</p></div>
     </section>
-
     <section id="tasks" class="section">
       <h1>Tasks & Follow-ups</h1>
       <div class="card"><p class="muted">Task management will be added next.</p></div>
     </section>
-
     <section id="reports" class="section">
       <h1>Business Reports</h1>
       <div class="card"><p class="muted">Reports will be connected after the business records are ready.</p></div>
@@ -212,6 +169,7 @@ const db = window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{
 const $ = id => document.getElementById(id);
 const loginScreen = $("loginScreen");
 const office = $("office");
+let recoveryMode = false;
 
 function showMessage(text){
   $("message").textContent = text;
@@ -222,6 +180,25 @@ function showLogin(){
   loginScreen.style.display = "flex";
 }
 
+function showRecoveryForm(){
+  recoveryMode = true;
+  office.hidden = true;
+  loginScreen.style.display = "flex";
+  $("loginPanel").hidden = true;
+  $("resetPanel").hidden = false;
+  showMessage("Enter and confirm your new password.");
+}
+
+function showNormalLogin(){
+  recoveryMode = false;
+  $("resetPanel").hidden = true;
+  $("loginPanel").hidden = false;
+  $("password").value = "";
+  $("newPassword").value = "";
+  $("confirmPassword").value = "";
+  showMessage("");
+}
+
 async function showOffice(){
   loginScreen.style.display = "none";
   office.hidden = false;
@@ -230,6 +207,7 @@ async function showOffice(){
 
 async function verifyOwner(session){
   if(!session || !session.user) return false;
+
   if(session.user.id !== OWNER_UID ||
      session.user.email?.toLowerCase() !== OWNER_EMAIL.toLowerCase()){
     await db.auth.signOut();
@@ -240,17 +218,25 @@ async function verifyOwner(session){
 
 async function checkSession(){
   const {data,error} = await db.auth.getSession();
-  if(error || !data.session || !(await verifyOwner(data.session))){
+
+  if(error || !data.session){
     showLogin();
     return;
   }
-  await showOffice();
+
+  if(!(await verifyOwner(data.session))){
+    showLogin();
+    return;
+  }
+
+  if(!recoveryMode) await showOffice();
 }
 
 $("email").value = OWNER_EMAIL;
 
 $("loginForm").addEventListener("submit",async e=>{
   e.preventDefault();
+
   const btn = $("loginButton");
   btn.disabled = true;
   showMessage("Checking Owner account...");
@@ -277,8 +263,74 @@ $("loginForm").addEventListener("submit",async e=>{
   await showOffice();
 });
 
+$("forgotButton").addEventListener("click",async()=>{
+  const btn = $("forgotButton");
+  btn.disabled = true;
+  showMessage("Sending password recovery email...");
+
+  const redirectTo = window.location.origin + window.location.pathname;
+
+  const {error} = await db.auth.resetPasswordForEmail(OWNER_EMAIL,{
+    redirectTo
+  });
+
+  if(error){
+    showMessage("Unable to send email: " + error.message);
+  }else{
+    showMessage("Recovery email sent. Open the newest email and use its link to return here.");
+  }
+
+  btn.disabled = false;
+});
+
+$("resetForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+
+  const btn = $("resetButton");
+  const password = $("newPassword").value;
+  const confirm = $("confirmPassword").value;
+
+  if(password.length < 8){
+    showMessage("Password must contain at least 8 characters.");
+    return;
+  }
+
+  if(password !== confirm){
+    showMessage("The passwords do not match.");
+    return;
+  }
+
+  btn.disabled = true;
+  showMessage("Saving your new password...");
+
+  const {data:sessionData} = await db.auth.getSession();
+  const session = sessionData.session;
+
+  if(!session || session.user.id !== OWNER_UID){
+    showMessage("Recovery session is missing or expired. Request a new recovery email.");
+    btn.disabled = false;
+    return;
+  }
+
+  const {error} = await db.auth.updateUser({password});
+
+  if(error){
+    showMessage("Password update failed: " + error.message);
+    btn.disabled = false;
+    return;
+  }
+
+  showMessage("Password updated successfully. Please login with your new password.");
+
+  await db.auth.signOut();
+  showNormalLogin();
+  btn.disabled = false;
+  showMessage("Password updated. You can now login with your new password.");
+});
+
 $("logout").addEventListener("click",async()=>{
   await db.auth.signOut();
+  showNormalLogin();
   showLogin();
 });
 
@@ -299,8 +351,7 @@ function safe(value){
 }
 
 async function loadEnquiries(){
-  $("enquiryRows").innerHTML =
-    '<tr><td colspan="6">Loading enquiries...</td></tr>';
+  $("enquiryRows").innerHTML = '<tr><td colspan="6">Loading enquiries...</td></tr>';
 
   const {data,error} = await db
     .from("enquiries")
@@ -309,8 +360,7 @@ async function loadEnquiries(){
     .limit(100);
 
   if(error){
-    $("enquiryRows").innerHTML =
-      '<tr><td colspan="6">Unable to load enquiries.</td></tr>';
+    $("enquiryRows").innerHTML = '<tr><td colspan="6">Unable to load enquiries.</td></tr>';
     $("enquiryMessage").textContent = error.message;
     return;
   }
@@ -320,8 +370,7 @@ async function loadEnquiries(){
   $("newEnquiries").textContent = rows.length;
 
   if(!rows.length){
-    $("enquiryRows").innerHTML =
-      '<tr><td colspan="6" class="empty">No enquiries received yet.</td></tr>';
+    $("enquiryRows").innerHTML = '<tr><td colspan="6" class="empty">No enquiries received yet.</td></tr>';
     return;
   }
 
@@ -341,8 +390,13 @@ async function loadEnquiries(){
 
 $("refresh").addEventListener("click",loadEnquiries);
 
-db.auth.onAuthStateChange(async(event,session)=>{
-  if(event==="SIGNED_OUT"){
+db.auth.onAuthStateChange((event,session)=>{
+  if(event==="PASSWORD_RECOVERY"){
+    showRecoveryForm();
+  }
+
+  if(event==="SIGNED_OUT" && !recoveryMode){
+    showNormalLogin();
     showLogin();
   }
 });
@@ -350,4 +404,4 @@ db.auth.onAuthStateChange(async(event,session)=>{
 checkSession();
 </script>
 </body>
-</html>
+        </html>
